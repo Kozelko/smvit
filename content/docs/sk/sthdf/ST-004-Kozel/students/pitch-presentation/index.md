@@ -133,44 +133,53 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-004-Kozel -->
 
-# 🎤 Pitch Presentation
+# 🎤 Pitch Presentation — OtakuPlanter (PRJ_004)
 
 ## 1. Problém
-- aký problém riešime
+- Izbové rastliny často vysychajú a hynú, pretože študenti a pracujúci ľudia zabúdajú na ich pravidelné polievanie.
+- Bežné kvetináče sú statické, pasívne a nudné objekty. Komerčné smart senzory posielajú len notifikácie na mobil, ktoré používateľ rýchlo ignoruje.
+- Chýba emocionálne a interaktívne prepojenie s rastlinou v domácom pracovnom priestore.
 
 ## 2. Riešenie
-- čo ponúkame
+- **OtakuPlanter:** Interaktívny 3D tlačený kvetináč v tvare anime postavičky s integrovanou elektronikou.
+- **Hlasová spätná väzba:** Keď kapacitný senzor zaznamená sucho, postavička sa hlasovo ozve v japončine (napr. *"Yamete kudasai, napoj ma!"*).
+- **Potvrdenie zaliatia:** Po pridaní vody postavička ihneď reaguje spokojnou hláškou (*"Arigatō!"*) a svetelnou indikáciou.
+- **Dvojitá komora:** Fyzické a bezpečné oddelenie zeminy s vodou od priestoru pre elektroniku.
 
 ## 3. Hodnota
-- kto z toho profituje a ako
+- **Záchrana rastlín:** Zábavná a neprehliadnuteľná prevencia vyschnutia.
+- **Gamifikácia & Dizajn:** Originálny dizajnový prvok pre fanúšikov anime, technológií a štýlových doplnkov na pracovný stôl.
+- **Bezúdržbovosť elektroniky:** Kapacitné snímanie nepodlieha korózii, nízka spotreba mikrokontroléra.
 
-## 4. Biznis model
-- ako by sme to monetizovali (aj v hypotéze)
+## 4. Biznis model / Monetizácia (Hypotéza)
+- **Open-source + DIY stavebnica:** Voľné STL modely a kód; predaj kompletnej hardvérovej stavebnice (BOM + PCB + senzory).
+- **Zberateľské edície:** Rôzne custom 3D modely postavičiek a vymeniteľné zvukové profily (balíčky hlášok na microSD).
+- **B2C e-shop predaj:** Hotový plug-and-play zostavený produkt pre fanúšikovskú komunitu.
 
 ## 5. Tím
-- prečo sme my tí správni ľudia
+- **Bc. Peter Brandajský (ST004):** Project Lead & Hardware/Firmware Developer (Informačná bezpečnosť, firmware na Arduino/ESP32, kalibrácia senzorov a DFPlayer audia).
+- **Bc. Timotej Strečko (ST013):** 3D Designer & Systems Architect (DataOps analytik, 3D CAD modelovanie tela, riešenie drenáže a hydroizolácie, systémová architektúra 7Ds).
 
-## 6. Call to action
-- čo potrebujeme od investorov (čas, peniaze, feedback)
+## 6. Call to action / Výzva
+- **Čo potrebujeme na realizáciu:**
+  1. Schválenie konceptu v rámci predmetu STHDF.
+  2. Využitie FabLab infraštruktúry (3D tlačiarne, spotreba PLA/PETG filamentu).
+  3. Spätná väzba od vyučujúceho k návrhu architektúry a mechanickému oddeleniu elektroniky od vody.
 
-## 🛠️ Štruktúra pitchu
-1. **Problém** – aký problém riešime?
-2. **Riešenie** – čo sme vyvinuli?
-3. **Trh / Kontext** – pre koho to je, aký má dopad?
-4. **Tím** – kto sme, aké máme roly?
-5. **Výzva** – čo potrebujeme (čas, ľudí, investíciu)?
+---
+
+## 🛠️ Štruktúra pitchu (3–5 slajdov)
+1. **Slajd 1 (Titulka):** `PRJ_004_AnimeSmartPlanter` (OtakuPlanter) — Tím ST004 & ST013.
+2. **Slajd 2 (Problém):** Prečo rastliny hynú a prečo bežné kvetináče zlyhávajú.
+3. **Slajd 3 (Riešenie & Systém):** Senzor vlhkosti $\rightarrow$ MCU $\rightarrow$ DFPlayer audio hlášky $\rightarrow$ 3D telo.
+4. **Slajd 4 (Digitálna fabrikácia):** CAD návrh postavičky s bezpečnou suchou komorou.
+5. **Slajd 5 (Plán & Tím):** Rozdelenie úloh a harmonogram do januára.
 
 ## ⏱️ Časovanie
-- Max 5–7 minút na prezentáciu
-- 2–3 minúty Q&A
+- **Prezentácia:** 3–5 minút
+- **Q&A:** 2 minúty
 
-## 📊 Podklady
-- 3–5 slajdov (stručné, vizuálne)
-- 1 demo / ukážka výsledku
-
-## 🧭 Tipy
-- Menej textu, viac vizualizácií
-- Jedna hlavná myšlienka na slide
+---
 
 ## Navigácia
 - [↩️ Späť](../index.md)
