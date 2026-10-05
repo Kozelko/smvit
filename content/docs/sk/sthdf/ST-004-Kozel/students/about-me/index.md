@@ -138,29 +138,46 @@ fm_reserved2: ""
 ## 🔖 Základné informácie
 - **Meno a priezvisko:** Bc. Peter Brandajský
 - **Študentské ID:** ST004
-- **Študijný program:** Informačná bezpečnosť (Ing., 3. semester), FIIT STU
+- **Štúdium:** FIIT STU v Bratislave, inžinierske štúdium so zameraním na **Informačnú bezpečnosť** (Cybersecurity, 3. semester)
 - **Študentský GitHub profil:** [https://github.com/Kozelko](https://github.com/Kozelko)
 - **Kontaktný e-mail:** 71568839+Kozelko@users.noreply.github.com / xbrandajsky@stuba.sk
 
-## 🎯 Profesijné záujmy
-- **Kybernetická a aplikačná bezpečnosť:** Reverzné inžinierstvo, malware analýza, obfuskácia a anti-debug techniky, bezpečnosť smart kontraktov.
-- **Umelá inteligencia & bezpečnosť:** Adversarial machine learning, rozpoznávanie tvárí a robustnosť modelov.
-- **Vývoj softvéru & IoT:** Programovanie v C/C++, Pythone, JavaScripte, práca s mikrokontrolérmi a hardvérovou logikou.
+---
 
-## 💡 Moje hobby / záujmy
-- Technologické trendy, výskum v oblasti kybernetickej bezpečnosti.
-- Anime a moderná japonská popkultúra.
-- Hardvérové prototypovanie, 3D tlač a stavba vlastných zariadení.
+## 🧠 Kto som
+Som developer so záujmom o bezpečnosť, backendové systémy a moderný webový vývoj. Fascinuje ma hĺbkové porozumenie tomu, ako systémy fungujú zvnútra – a kde a prečo môžu zlyhať.
 
-## 🚀 Očakávania od predmetu
-- Získať praktické skúsenosti s metodikami systémového myslenia a riadenia komplexných projektov (rámec 7Ds, SDLC, KNIFE).
-- Prepojiť teoretický systémový návrh s fyzickou digitálnou fabrikáciou vo FabLabe a reálnou elektronikou.
-- Úspešne navrhnúť, zrealizovať a odprezentovať funkčný hmatateľný prototyp.
+Vo svojej bakalárskej práci som sa venoval **bezpečnosti smart kontraktov a analýze zraniteľností**, kde som využíval AI nástroje na automatickú detekciu a opravu bezpečnostných chýb. 
 
-## 🚀 Čo viem ponúknuť
-- **Rola v tíme:** Project Lead & Hardware / Firmware Developer.
-- Zodpovednosť za riadenie projektu, logiku mikrokontroléra (Arduino / ESP32), kalibráciu senzorov a integráciu zvukového modulu.
-- Skúsenosti s gitom, systémovou dekompozíciou a bezpečným návrhom systémov.
+Aktuálne sa sústredím na stavbu reálnych aplikácií, rozširovanie skúseností do fullstack developmentu a integráciu moderných AI systémov (LLM).
+
+---
+
+## 🚀 Na čom aktuálne pracujem
+- 🛒 **E-commerce projekt:** Prestavba a modernizácia e-shopu s využitím Next.js a moderných webových technológií.
+- 🤖 **AI / Startup projekt:** Vývoj riešení postavených na veľkých jazykových modeloch (LLM) s využitím **LangGraph, RAG, FastAPI a Vue**.
+- 🌐 **Fullstack vzdelávanie:** Zdokonaľovanie fullstack developmentu prostredníctvom *The Odin Project*.
+
+---
+
+## 🛠️ Tech Stack & Zručnosti
+- **Jazyky:** Python, JavaScript, C/C++, Solidity
+- **Frontend:** Next.js, Vue, React, moderný HTML/CSS
+- **Backend & API:** FastAPI, Node.js, REST APIs
+- **Nástroje & Infraštruktúra:** Docker, Git, Linux, Bash
+
+---
+
+## 📌 Záujmy & Hobby
+- **Odborné záujmy:** Cybersecurity, AI & LLMs, Web Development, Softvérová a systémová architektúra.
+- **Osobné hobby:** Technologické novinky, anime a moderná kultúra, hardvérové prototypovanie a stavba smart zariadení.
+
+---
+
+## 🚀 Očakávania od predmetu & Rola v projekte
+- **Rola v tíme:** Project Lead & Hardware / Firmware Developer (`PRJ_004_AnimeSmartPlanter`).
+- **Očakávania:** Prepojiť softvérovú architektúru a systémové myslenie (7Ds, SDLC) s fyzickou digitálnou fabrikáciou vo FabLabe a riadením mikrokontrolérov (Arduino/ESP32).
+- **Prínos:** Zodpovednosť za systémovú logiku, integráciu senzorov, firmvér pre audio modul a celkovú koordináciu projektu.
 
 ## Navigácia
 - [↩️ Späť](../index.md)
