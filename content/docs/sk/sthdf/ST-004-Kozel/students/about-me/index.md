@@ -177,6 +177,7 @@ Aktuálne sa sústredím na stavbu reálnych aplikácií, rozširovanie skúseno
 ## 🚀 Očakávania od predmetu & Rola v projekte
 - **Rola v tíme:** Project Lead & Hardware / Firmware Developer (`PRJ_004_AnimeSmartPlanter`).
 - **Očakávania:** Prepojiť softvérovú architektúru a systémové myslenie (7Ds, SDLC) s fyzickou digitálnou fabrikáciou vo FabLabe a riadením mikrokontrolérov (Arduino/ESP32).
+- **Osobná motivácia:** Okrem technických výziev a dobrého projektu je mojou hlavnou motiváciou pomôcť Timovi a potešiť Timovu priateľku týmto interaktívnym anime podstavcom na kvety.
 - **Prínos:** Zodpovednosť za systémovú logiku, integráciu senzorov, firmvér pre audio modul a celkovú koordináciu projektu.
 
 ## Navigácia
