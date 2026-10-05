@@ -133,27 +133,34 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-004-Kozel -->
 
-# 🙋 About Me
+# 🙋 About Me — Peter Brandajský (ST-004)
 
 ## 🔖 Základné informácie
-- Meno a priezvisko
-- Študentský GitHub profil (link)
-- Kontaktný e-mail
+- **Meno a priezvisko:** Bc. Peter Brandajský
+- **Študentské ID:** ST004
+- **Študijný program:** Informačná bezpečnosť (Ing., 3. semester), FIIT STU
+- **Študentský GitHub profil:** [https://github.com/Kozelko](https://github.com/Kozelko)
+- **Kontaktný e-mail:** 71568839+Kozelko@users.noreply.github.com / xbrandajsky@stuba.sk
 
 ## 🎯 Profesijné záujmy
-- Oblasti, ktoré ma bavia (IT, dizajn, podnikanie, …)
-- Aké skúsenosti by som chcel získať
+- **Kybernetická a aplikačná bezpečnosť:** Reverzné inžinierstvo, malware analýza, obfuskácia a anti-debug techniky, bezpečnosť smart kontraktov.
+- **Umelá inteligencia & bezpečnosť:** Adversarial machine learning, rozpoznávanie tvárí a robustnosť modelov.
+- **Vývoj softvéru & IoT:** Programovanie v C/C++, Pythone, JavaScripte, práca s mikrokontrolérmi a hardvérovou logikou.
 
 ## 💡 Moje hobby / záujmy
-- Šport, hudba, varenie, cestovanie …
-- Čokoľvek, čo odhaľuje „ľudskú stránku"
+- Technologické trendy, výskum v oblasti kybernetickej bezpečnosti.
+- Anime a moderná japonská popkultúra.
+- Hardvérové prototypovanie, 3D tlač a stavba vlastných zariadení.
 
 ## 🚀 Očakávania od predmetu
-- Čo chcem dosiahnuť v rámci kurzu
-- Čo očakávam od spolupráce s tímom a komunitou
+- Získať praktické skúsenosti s metodikami systémového myslenia a riadenia komplexných projektov (rámec 7Ds, SDLC, KNIFE).
+- Prepojiť teoretický systémový návrh s fyzickou digitálnou fabrikáciou vo FabLabe a reálnou elektronikou.
+- Úspešne navrhnúť, zrealizovať a odprezentovať funkčný hmatateľný prototyp.
 
 ## 🚀 Čo viem ponúknuť
-- Čo chcem ponúknuť v rámci kurzu
+- **Rola v tíme:** Project Lead & Hardware / Firmware Developer.
+- Zodpovednosť za riadenie projektu, logiku mikrokontroléra (Arduino / ESP32), kalibráciu senzorov a integráciu zvukového modulu.
+- Skúsenosti s gitom, systémovou dekompozíciou a bezpečným návrhom systémov.
 
 ## Navigácia
 - [↩️ Späť](../index.md)

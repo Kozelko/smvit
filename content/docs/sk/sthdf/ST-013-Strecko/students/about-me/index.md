@@ -133,27 +133,34 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-013-Strecko -->
 
-# 🙋 About Me
+# 🙋 About Me — Timotej Strečko (ST-013)
 
 ## 🔖 Základné informácie
-- Meno a priezvisko
-- Študentský GitHub profil (link)
-- Kontaktný e-mail
+- **Meno a priezvisko:** Bc. Timotej Strečko
+- **Študentské ID:** ST013
+- **Študijný program:** Inžinierske štúdium (3. semester), FIIT STU
+- **Študentský GitHub profil:** Timotej Strečko
+- **Kontaktný e-mail:** xstrecko@stuba.sk
 
 ## 🎯 Profesijné záujmy
-- Oblasti, ktoré ma bavia (IT, dizajn, podnikanie, …)
-- Aké skúsenosti by som chcel získať
+- **Softvérové inžinierstvo & architektúra:** Návrh systémov, správa životného cyklu aplikácií, dekompozícia požiadaviek.
+- **Digitálna fabrikácia & 3D modelovanie:** CAD dizajn mechanických dielov, príprava tlače (slicing, materiály), optimalizácia pre FabLab technológie.
+- **Používateľská skúsenosť & dizajn:** Ergonómia fyzických produktov a funkčný dizajn zariadení.
 
 ## 💡 Moje hobby / záujmy
-- Šport, hudba, varenie, cestovanie …
-- Čokoľvek, čo odhaľuje „ľudskú stránku"
+- 3D modelovanie, grafický dizajn a digitálne umenie.
+- Anime, manga a moderná popkultúra.
+- Technologické novinky, smart home zariadenia a gadgety.
 
 ## 🚀 Očakávania od predmetu
-- Čo chcem dosiahnuť v rámci kurzu
-- Čo očakávam od spolupráce s tímom a komunitou
+- Získať ucelený pohľad na prepájanie systémového myslenia (7Ds, SDLC) s hardvérovou a materiálovou realizáciou.
+- Zlepšiť sa v praktickom navrhovaní fyzických modelov vo FabLabe s ohľadom na limity materiálov a montáže.
+- Efektívna tímová spolupráca na projekte s reálnym hmatateľným výsledkom.
 
 ## 🚀 Čo viem ponúknuť
-- Čo chcem ponúknuť v rámci kurzu
+- **Rola v tíme:** 3D Designer & System Architect.
+- Zodpovednosť za CAD modelovanie anime postavičky/kvetináča, riešenie oddelenia elektroniky od vody, prípravu modelov na 3D tlač.
+- Tvorba technickej a systémovej dokumentácie, vizualizácií a diagramov.
 
 ## Navigácia
 - [↩️ Späť](../index.md)

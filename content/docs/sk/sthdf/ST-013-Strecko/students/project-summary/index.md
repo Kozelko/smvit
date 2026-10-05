@@ -133,69 +133,82 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-013-Strecko -->
 
-# 📝 Project Summary
+# 📝 Project Summary — OtakuPlanter (PRJ_004)
 
 ## 🔖 Identifikácia
 ## 1️⃣ Názov projektu
-*(Jasný, výstižný, inšpiratívny – ako by sa mal objaviť na plagáte.)*
-- **Názov projektu:** `PRJ_XXX_<Názov>_<ST_XXX>_<ST_XXX>`
-- **Stručný popis:** 2–3 vety
+- **Názov projektu:** `PRJ_004_AnimeSmartPlanter_ST004_ST013`
+- **Pracovný názov:** *OtakuPlanter: Interaktívny smart kvetináč s anime tematikou a hlasovou odozvou*
+- **Stručný popis:** Inteligentný izbový kvetináč v tvare anime postavičky vyrobený pomocou digitálnej fabrikácie (3D tlače), ktorý v reálnom čase monitoruje stav pôdnej vlhkosti. Pri poklese vlahy pod kritickú úroveň mikrokontrolér cez audio modul prehrá varovnú hlášku v japončine (napr. *"Yamete kudasai, napoj ma!"*), čím zábavnou formou predchádza vysychaniu rastliny.
 
 ## 2️⃣ Členovia tímu
 
 | ST ID | Meno | Rola v tíme | Kompetencie |
 |-------|------|-------------|-------------|
-| ST001 |      | Project Lead | koordinácia |
-| ST002 |      | Developer | implementácia |
-| ST003 |      | Designer | UI/UX |
+| **ST004** | Bc. Peter Brandajský | Project Lead & Hardware/Firmware | Koordinácia projektu, vývoj firmvéru (Arduino/ESP32), integrácia senzorov a DFPlayer audia, kalibrácia stavového automatu |
+| **ST013** | Bc. Timotej Strečko | 3D Designer & Systems Architect | CAD dizajn tela postavičky a kvetináča, riešenie suchej komory pre elektroniku a drenáže, 7Ds systémová dekompozícia |
 
 ## 3️⃣ Motivácia tímu
-- Prečo ste si vybrali tento projekt?
-- Aký osobný alebo profesný zmysel má pre vás riešenie tejto témy?
-- Prečo je projekt dôležitý
-- Aký problém rieši
+- **Problém:** Izbové rastliny v domácnostiach a na internátoch často hynú kvôli nepravidelnému polievaniu a zabúdaniu. Bežné komerčné smart kvetináče sú buď drahé, sterilné alebo len posielajú notifikácie na mobil, ktoré používateľ ignoruje.
+- **Prečo práve tento projekt:** Chceme spojiť digitálnu fabrikáciu s praktickým IoT zariadením a gamifikáciou starostlivosti o rastliny. Postavička získa vlastnú "osobnosť" a prirodzene si hlasom vypýta pozornosť v momente, keď rastlina potrebuje vodu.
+- **Osobný zmysel:** Praktické overenie systémového životného cyklu (od výberu súčiastok a 3D modelovania až po finálne oživenie a testovanie funkčného fyzického produktu).
 
 ## 4️⃣ Cieľ a pridaná hodnota projektu
-- Aký je finálny cieľ
-- Ako spoznáme, že projekt je úspešný
+- **Finálny cieľ:** Plne funkčný, estetický a vodotesne oddelený 3D tlačený kvetináč s integrovanou elektronikou, ktorý spoľahlivo meria vlhkosť a akusticky reaguje na zmeny stavu.
+- **Kritériá úspechu:**
+  1. Presná a stabilná detekcia sucha pomocou kapacitného senzora bez degradácie pôsobením korózie.
+  2. Spoľahlivé prehratie správnej zvukovej stopy cez DFPlayer Mini podľa aktuálneho stavu (Sucho $\rightarrow$ Zaliatie).
+  3. Mechanická integrita: Žiadny prienik vody ani vlhkosti z drenážnej časti do priestoru s elektronikou.
 
-## 5️⃣ Popis riešenia
-- Stručne opíšte architektúru, nástroje a technológie, ktoré použijete.
-- Zamerajte sa na **"čo"** riešite, nie ešte "ako".
+## 5️⃣ Popis riešenia (Systémová architektúra)
+Zariadenie je koncipované ako ucelený kyberneticko-fyzikálny systém pozostávajúci zo 4 subsystémov:
+- **Senzorický subsystém:** Kapacitný senzor pôdnej vlhkosti v1.2 (analógové meranie permitivity pôdy, nepodlieha galvanickej korózii ako lacné odporové sondy).
+- **Riadiaci subsystém:** Mikrokontrolér (Arduino Nano / ESP32) so stavovým automatom:
+  - *Stav 1 (Standby/Sleep):* Pravidelné budenie a nízka spotreba energie.
+  - *Stav 2 (Meranie & Vyhodnotenie):* Odčítanie hodnôt s vyhladením šumu a hysteréziou.
+  - *Stav 3 (Kritické sucho):* Aktivácia zvukového subsystému a varovnej hlášky.
+  - *Stav 4 (Detekcia poliatia):* Úspešná detekcia nárastu vlahy $\rightarrow$ prehratie spokojnej hlášky (*"Arigatō!"*).
+- **Aktuačný & Zvukový subsystém:** MP3 dekodér DFPlayer Mini s microSD kartou (uložené audio hlášky), mini reproduktor (8Ω / 3W) a signalizačná LED dióda (indikácia stavu v očiach postavičky).
+- **Konštrukčný subsystém (Digitálna fabrikácia):** 3D tlačené telo (PLA / PETG) navrhnuté v CAD nástroji. Konštrukcia obsahuje vrchnú kvetináčovú nádobu s prepadovým otvorom a spodnú hermeticky izolovanú komoru pre elektroniku a reproduktor.
 
 ## 6️⃣ Projektový plán
-- Odhadovaný čas na prácu: _x hodín / týždeň_
-- Predpokladaný stav v čase prezentácie: _MVP / prototyp / dokumentácia / funkčný produkt_
-- Hlavné míľniky:
-  - [ ] Príprava
-  - [ ] Implementácia
-  - [ ] Testovanie
-  - [ ] Prezentácia
+- **Odhadovaný čas na prácu:** 6–8 hodín týždenne na tím.
+- **Predpokladaný stav v čase prezentácie:** Funkčný prototyp (MVP) v 3D tlačenom tele s demonštráciou reakcie na zalievanie.
+- **Hlavné míľniky:**
+  - [x] **M1 (Týždeň 4):** Project Summary, systémová dekompozícia a špecifikácia kusovníka (BOM).
+  - [ ] **M2 (Týždeň 6):** Zostavenie obvodu na breadboarde, kalibrácia senzora vlhkosti a test DFPlayer audia.
+  - [ ] **M3 (Týždeň 8):** Dokončenie CAD modelu postavičky a prvá testovacia 3D tlač vo FabLabe.
+  - [ ] **M4 (Týždeň 10):** Finálna montáž elektroniky do vytlačeného tela, hydroizolácia a zladenie firmvéru.
+  - [ ] **M5 (Týždeň 12):** Verifikácia, finálna 7Ds dokumentácia, video demonštrácia a prezentácia.
 
 ### 📅 Míľniky a výstupy
 - **Do januára dodáme:**
-  - [ ] prototyp
-  - [ ] prezentáciu
-  - [ ] dokumentáciu
+  - [x] funkčný hardvérový prototyp kvetináča
+  - [x] kompletnú 7Ds dokumentáciu v Docusauruse
+  - [x] CAD podklady (STL/STEP) a zdrojový kód firmvéru
+  - [x] finálnu pitch a záverečnú prezentáciu
 
 ## 7️⃣ Zákazník a hodnoty
-- Kto by mohol byť používateľom projektu?
-- Čo mu to prinesie?
+- **Cieľová skupina:** Študenti, kancelárski pracovníci, fanúšikovia anime kultúry a smart-home technológií.
+- **Prínos:** Spoľahlivá záchrana izbových rastlín pred vyschnutím, personalizovaný dizajn pracovného stola a zábavný interaktívny prvok namiesto nudných plastových kvetináčov.
 
 ## 8️⃣ Očakávané výstupy
-- Dokumentácia: (napr. README, KNIFE článok, demo stránka...)
-- Artefakty: (napr. prototyp, appka, vizualizácia...)
+- **Dokumentácia:** Kompletná systémová dokumentácia 7Ds (D1 až D7), schémy zapojenia (Fritzing), návod na replikáciu.
+- **Artefakty:** Fyzický 3D prototyp, repozitár so zdrojovým kódom C++ (Arduino), CAD modely pre 3D tlačiareň, demo video.
 
-## 📚 Kontext
-- KNIFE príspevky, literatúra, inšpirácie
+## 📚 Kontext & Inšpirácie
+- Nadväznosť na staršie projekty FabLab / SMVIT: *Plant Monitoring (2020)* a *Sensoric Tortoise (2020)*.
+- Metodický rámec 7Ds pre štruktúrovaný návrh riešenia (od požiadaviek po verifikáciu).
 
 ## 🧭 Riziká a závislosti
-- Riziká projektu
-- Na čom závisí
+- **Riziko 1 (Vlhkosť a voda):** Nebezpečenstvo zatečenia vody zo substrátu k elektronike.  
+  *Mitigácia:* Fyzicky oddelená dvojstenná komora, drenážny kanálik s odtokom mimo PCB, ochranné lakovanie spojov.
+- **Riziko 2 (Falošná signalizácia / šum merania):** Kolísanie analógových hodnôt zo senzora.  
+  *Mitigácia:* Softvérový plávajúci priemer a hysterézia limitných hodnôt vo firmvéri.
 
 ## 9️⃣ Reflexia a ďalšie kroky
-Čo očakávate, že sa naučíte?
-Ako by sa projekt mohol rozvíjať ďalej?
+- **Čo sa naučíme:** Praktickú integráciu embedded mikrokontrolérov s audio perifériami, konštrukčný návrh pre 3D tlač s ohľadom na montáž a vodeodolnosť, uplatnenie princípov systémového inžinierstva.
+- **Možný ďalší rozvoj:** Pridanie Wi-Fi / Bluetooth (ESP32) pre webový dashboard a možnosť nahrávania vlastných hlášok cez webové rozhranie.
 
 ---
 
