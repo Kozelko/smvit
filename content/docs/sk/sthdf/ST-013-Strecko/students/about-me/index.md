@@ -143,24 +143,24 @@ fm_reserved2: ""
 - **Kontaktný e-mail:** xstrecko@stuba.sk
 
 ## 🎯 Profesijné záujmy
-- **Softvérové inžinierstvo & architektúra:** Návrh systémov, správa životného cyklu aplikácií, dekompozícia požiadaviek.
-- **Digitálna fabrikácia & 3D modelovanie:** CAD dizajn mechanických dielov, príprava tlače (slicing, materiály), optimalizácia pre FabLab technológie.
-- **Používateľská skúsenosť & dizajn:** Ergonómia fyzických produktov a funkčný dizajn zariadení.
+- **Dátová analytika & DataOps:** Dátové toky, analytika, automatizácia a správa dátových pipelineov (aktívne pôsobenie na tímovom projekte v oblasti DataOps).
+- **Systémová architektúra:** Návrh systémov, dekompozícia požiadaviek a prepojenie softvéru s hardvérom.
+- **Digitálna fabrikácia & 3D modelovanie:** CAD dizajn mechanických dielov, príprava pre 3D tlač (FabLab), funkčný a estetický dizajn.
 
 ## 💡 Moje hobby / záujmy
-- 3D modelovanie, grafický dizajn a digitálne umenie.
-- Anime, manga a moderná popkultúra.
-- Technologické novinky, smart home zariadenia a gadgety.
+- **Fitness & Extrémne premeny:** Aktívny životný štýl, silový tréning – majster v extrémnych premenách a aktuálne v plnom nasadení na objemovku (bulk).
+- **Kultúra & Oddych:** Veľký fanúšik anime a čitateľ manhwy (najmä *Lookism*).
+- **Životný štýl:** Dobré jedlo, cestovanie, spoznávanie nových miest a svet financií.
 
 ## 🚀 Očakávania od predmetu
-- Získať ucelený pohľad na prepájanie systémového myslenia (7Ds, SDLC) s hardvérovou a materiálovou realizáciou.
-- Zlepšiť sa v praktickom navrhovaní fyzických modelov vo FabLabe s ohľadom na limity materiálov a montáže.
-- Efektívna tímová spolupráca na projekte s reálnym hmatateľným výsledkom.
+- Prepojiť analytické a systémové myslenie s reálnou digitálnou fabrikáciou a senzorikou.
+- Vyrobiť plnohodnotný, pekný a funkčný interaktívny kvetináč/podstavec, ktorým poteším svoju priateľku.
+- Osvojiť si rámce 7Ds a SDLC v praktickom tímovom vývoji od nápadu po fyzický prototyp.
 
 ## 🚀 Čo viem ponúknuť
-- **Rola v tíme:** 3D Designer & System Architect.
-- Zodpovednosť za CAD modelovanie anime postavičky/kvetináča, riešenie oddelenia elektroniky od vody, prípravu modelov na 3D tlač.
-- Tvorba technickej a systémovej dokumentácie, vizualizácií a diagramov.
+- **Rola v tíme:** 3D Designer & Data / Systems Architect.
+- Analytický prístup k spracovaniu dát z meraní (kalibrácia prahov vlhkosti), CAD modelovanie tela kvetináča a zabezpečenie suchej komory pre elektroniku.
+- Zodpovedný prístup, zmysel pre detail a tímovú dynamiku.
 
 ## Navigácia
 - [↩️ Späť](../index.md)

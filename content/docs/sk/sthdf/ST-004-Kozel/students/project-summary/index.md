@@ -151,7 +151,7 @@ fm_reserved2: ""
 ## 3️⃣ Motivácia tímu
 - **Problém:** Izbové rastliny v domácnostiach a na internátoch často hynú kvôli nepravidelnému polievaniu a zabúdaniu. Bežné komerčné smart kvetináče sú buď drahé, sterilné alebo len posielajú notifikácie na mobil, ktoré používateľ ignoruje.
 - **Prečo práve tento projekt:** Chceme spojiť digitálnu fabrikáciu s praktickým IoT zariadením a gamifikáciou starostlivosti o rastliny. Postavička získa vlastnú "osobnosť" a prirodzene si hlasom vypýta pozornosť v momente, keď rastlina potrebuje vodu.
-- **Osobný zmysel:** Praktické overenie systémového životného cyklu (od výberu súčiastok a 3D modelovania až po finálne oživenie a testovanie funkčného fyzického produktu).
+- **Osobný zmysel:** Praktické overenie systémového životného cyklu (od výberu súčiastok a 3D modelovania až po finálne oživenie a testovanie funkčného fyzického produktu). Projekt má navyše aj dôležitú osobnú motiváciu – Timotej chce vytvoriť pekný a funkčný interaktívny kvetináč/podstavec inšpirovaný anime/Lookism estetikou, aby potešil svoju priateľku, pričom naplno zužitkuje Petrov hardvérový skill a vlastné DataOps/analytické zázemie.
 
 ## 4️⃣ Cieľ a pridaná hodnota projektu
 - **Finálny cieľ:** Plne funkčný, estetický a vodotesne oddelený 3D tlačený kvetináč s integrovanou elektronikou, ktorý spoľahlivo meria vlhkosť a akusticky reaguje na zmeny stavu.
