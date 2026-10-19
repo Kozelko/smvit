@@ -133,9 +133,31 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-013-Strecko -->
 
-# 🧑‍🤝‍🧑 User Stories
+# 🧑‍🤝‍🧑 User Stories — OtakuPlanter (PRJ_004)
 
-Zapíš stručné príbehy používateľov (As a … I want … so that …).
+Používateľské príbehy definujú funkčné požiadavky na interaktívny kvetináč **OtakuPlanter** z pohľadu koncovej používateľky (priateľky, fanúšičky anime a izbových rastlín) aj z pohľadu tvorcov a údržby zariadenia.
+
+---
+
+## Prehľad používateľských príbehov
+
+| ID | Rola (As a...) | Požiadavka (I want...) | Prínos (So that...) | Priorita |
+|---|---|---|---|---|
+| **US-01** | Majiteľka rastliny | Aby kvetináč pri vyschnutí substrátu prehral japonskú hlasovú hlášku (*"Yamete kudasai!"*) | Aby som nezabudla rastlinu poliať ani počas náročného týždňa bez nutnosti inštalovať mobilnú aplikáciu | **High (Must)** |
+| **US-02** | Majiteľka rastliny | Aby mi kvetináč po naliatí vody okamžite poďakoval (*"Arigatō!"*) | Aby som mala okamžitú pozitívnu emočnú spätnú väzbu a vedela, že vody je už dostatok | **High (Must)** |
+| **US-03** | Majiteľka rastliny | Aby kvetináč neopakoval zvukovú výzvu neustále každú sekundu, ani nevyrušoval uprostred noci | Aby zariadenie v izbe nepôsobilo otravne, ale ako príjemný spoločník | **High (Must)** |
+| **US-04** | Fanúšička anime | Aby mal kvetináč estetický 3D tlačený dizajn s anime postavičkou a podsvietenými očami (LED) | Aby slúžil ako štýlová dekorácia na pracovnom stole a vizuálne signalizoval smäd aj pri stíšenom zvuku | **Medium (Should)** |
+| **US-05** | Používateľka / Tvorca | Aby boli všetky elektronické súčiastky bezpečne oddelené od vody a vlhkej hliny | Aby pri preliatí kvetináča nedošlo ku skratu ani k poškodeniu USB napájania | **High (Must)** |
+| **US-06** | Tvorca / Údržbár | Aby som mohol jednoducho vymeniť MP3 súbory na MicroSD karte | Aby bolo možné kedykoľvek zmeniť hlas postavičky alebo pridať nové anime hlášky bez preprogramovania čipu | **Low (Could)** |
+
+---
+
+## Akceptačné kritériá (Acceptance Criteria)
+
+- **AC-01 (Detekcia sucha):** Ak priemerná hodnota z kapacitného senzora (16 vzoriek) prekročí prah `DRY_THRESHOLD` ($> 620$), systém do 5 sekúnd prejde do stavu `ALERT_THIRSTY`, rozsvieti/rozbliká varovnú LED a prehrá zvukovú stopu `0001.mp3`.
+- **AC-02 (Detekcia poliatia s hysteréziou):** Ak je systém v stave smädu (`WAIT_WATER`) a hodnota senzora klesne pod `WET_THRESHOLD` ($< 450$), systém do 2 sekúnd prehrá ďakovnú stopu `0002.mp3` a prepne LED do pokojného režimu.
+- **AC-03 (Cooldown proti spamu):** Medzi dvoma zvukovými pripomienkami smädu musí uplynúť minimálne nastavený interval (`REMINDER_COOLDOWN`), aby nedochádzalo k neustálemu opakovaniu stopy.
+- **AC-04 (Vodotesnosť komôr):** Naliatie $200\text{ ml}$ vody do kvetináčovej komory nesmie spôsobiť prienik ani jednej kvapky do suchej komory s elektronikou.
 
 ---
 **Navigation:** [⬆️ Up](./index.md) · [🏠 Home](../index.md)

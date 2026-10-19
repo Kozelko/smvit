@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:thecustomprofile="http://www.sparxsystems.com/profiles/thecustomprofile/1.0">
+  <xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+  <uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
+    <packagedElement xmi:type="uml:Package" xmi:id="EAPK_OTAKU_ROOT" name="OtakuPlanter_PRJ_004" visibility="public">
+      
+      <!-- ================= 1. USE CASE MODEL ================= -->
+      <packagedElement xmi:type="uml:Package" xmi:id="EAPK_UC_PKG" name="01_UseCase_Model" visibility="public">
+        <packagedElement xmi:type="uml:Actor" xmi:id="EAID_ACT_USER" name="Pouzivatelka (Priatelka)" visibility="public"/>
+        <packagedElement xmi:type="uml:Actor" xmi:id="EAID_ACT_SOIL" name="Substrat (Vlhkost pody)" visibility="public"/>
+        
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_01" name="UC01: Upozornit na smad (Yamete kudasai!)" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_02" name="UC02: Podakovat za poliatie (Arigato!)" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_03" name="UC03: Merat a filtrovat vlhkost pody" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_04" name="UC04: Zobrazit stav cez LED oci" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_05" name="UC05: Vymenit MP3 hlasky na MicroSD" visibility="public"/>
+
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASS_01" visibility="public">
+          <memberEnd xmi:idref="EAID_END_01A"/>
+          <memberEnd xmi:idref="EAID_END_01B"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_01A" visibility="public" association="EAID_ASS_01" type="EAID_ACT_USER"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_01B" visibility="public" association="EAID_ASS_01" type="EAID_UC_01"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASS_02" visibility="public">
+          <memberEnd xmi:idref="EAID_END_02A"/>
+          <memberEnd xmi:idref="EAID_END_02B"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_02A" visibility="public" association="EAID_ASS_02" type="EAID_ACT_USER"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_02B" visibility="public" association="EAID_ASS_02" type="EAID_UC_02"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASS_03" visibility="public">
+          <memberEnd xmi:idref="EAID_END_03A"/>
+          <memberEnd xmi:idref="EAID_END_03B"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_03A" visibility="public" association="EAID_ASS_03" type="EAID_ACT_SOIL"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_03B" visibility="public" association="EAID_ASS_03" type="EAID_UC_03"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASS_04" visibility="public">
+          <memberEnd xmi:idref="EAID_END_04A"/>
+          <memberEnd xmi:idref="EAID_END_04B"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_04A" visibility="public" association="EAID_ASS_04" type="EAID_ACT_USER"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_END_04B" visibility="public" association="EAID_ASS_04" type="EAID_UC_05"/>
+        </packagedElement>
+      </packagedElement>
+
+      <!-- ================= 2. HARDWARE & SYSTEM ARCHITECTURE ================= -->
+      <packagedElement xmi:type="uml:Package" xmi:id="EAPK_ARCH_PKG" name="02_Hardware_Architecture" visibility="public">
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_SENSOR" name="Kapacitny senzor vlhkosti v1.2" visibility="public"/>
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_MCU" name="Arduino Nano / ESP32 (MCU + FSM)" visibility="public"/>
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_DFP" name="DFPlayer Mini MP3 Modul" visibility="public"/>
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_SD" name="MicroSD Karta (FAT32 /mp3)" visibility="public"/>
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_SPK" name="Reproduktor 8 Ohm / 3W" visibility="public"/>
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_LED" name="Indikacna LED (Oci postavicky)" visibility="public"/>
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_PWR" name="5V USB Napajanie + 100uF Filter" visibility="public"/>
+        <packagedElement xmi:type="uml:Component" xmi:id="EAID_CMP_BODY" name="3D Tlaceny Dvojkomorovy Kvetinac (PETG)" visibility="public"/>
+
+        <packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DEP_01" name="Analog A0 (1.2V - 3.0V)" client="EAID_CMP_MCU" supplier="EAID_CMP_SENSOR"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DEP_02" name="SoftwareSerial UART (D10/D11 + 1kOhm)" client="EAID_CMP_DFP" supplier="EAID_CMP_MCU"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DEP_03" name="Audio subory 0001-0003.mp3" client="EAID_CMP_DFP" supplier="EAID_CMP_SD"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DEP_04" name="SPK_1 / SPK_2 Zosilneny vystup" client="EAID_CMP_SPK" supplier="EAID_CMP_DFP"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DEP_05" name="PWM D6 (cez 220 Ohm)" client="EAID_CMP_LED" supplier="EAID_CMP_MCU"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DEP_06" name="5V / GND" client="EAID_CMP_MCU" supplier="EAID_CMP_PWR"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DEP_07" name="5V / GND" client="EAID_CMP_DFP" supplier="EAID_CMP_PWR"/>
+      </packagedElement>
+
+      <!-- ================= 3. STATE MACHINE (FIRMWARE FSM) ================= -->
+      <packagedElement xmi:type="uml:Package" xmi:id="EAPK_FSM_PKG" name="03_Firmware_StateMachine" visibility="public">
+        <packagedElement xmi:type="uml:StateMachine" xmi:id="EAID_SM_MAIN" name="OtakuPlanter_FSM" visibility="public">
+          <region xmi:type="uml:Region" xmi:id="EAID_REG_MAIN" name="MainRegion">
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_ST_START" name="Start" kind="initial"/>
+            <subvertex xmi:type="uml:State" xmi:id="EAID_ST_INIT" name="INIT (Boot &amp; DFPlayer Check)"/>
+            <subvertex xmi:type="uml:State" xmi:id="EAID_ST_STANDBY" name="STANDBY (Vlhkost v norme)"/>
+            <subvertex xmi:type="uml:State" xmi:id="EAID_ST_MEASURE" name="MEASURE (16x Klzavy priemer ADC)"/>
+            <subvertex xmi:type="uml:State" xmi:id="EAID_ST_THIRSTY" name="ALERT_THIRSTY (Prehraj Yamete kudasai! + LED)"/>
+            <subvertex xmi:type="uml:State" xmi:id="EAID_ST_WAIT" name="WAIT_WATER (Cakanie na poliatie + Cooldown)"/>
+            <subvertex xmi:type="uml:State" xmi:id="EAID_ST_HAPPY" name="WATERED_HAPPY (Prehraj Arigato! + LED OK)"/>
+
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_01" name="Power On (5V)" source="EAID_ST_START" target="EAID_ST_INIT"/>
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_02" name="Init OK (Play Track 0003)" source="EAID_ST_INIT" target="EAID_ST_STANDBY"/>
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_03" name="Timer Tick (5s)" source="EAID_ST_STANDBY" target="EAID_ST_MEASURE"/>
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_04" name="ADC &lt;= DRY_THRESHOLD (620)" source="EAID_ST_MEASURE" target="EAID_ST_STANDBY"/>
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_05" name="ADC &gt; DRY_THRESHOLD (620)" source="EAID_ST_MEASURE" target="EAID_ST_THIRSTY"/>
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_06" name="Play Track 0001 Done" source="EAID_ST_THIRSTY" target="EAID_ST_WAIT"/>
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_07" name="ADC &lt; WET_THRESHOLD (450)" source="EAID_ST_WAIT" target="EAID_ST_HAPPY"/>
+            <transition xmi:type="uml:Transition" xmi:id="EAID_TR_08" name="Play Track 0002 Done" source="EAID_ST_HAPPY" target="EAID_ST_STANDBY"/>
+          </region>
+        </packagedElement>
+      </packagedElement>
+
+    </packagedElement>
+  </uml:Model>
+  <xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+    <diagrams>
+      <!-- Diagram 1: Use Case Diagram -->
+      <diagram xmi:id="EAID_DIAG_UC">
+        <model package="EAPK_UC_PKG" localID="1" owner="EAPK_UC_PKG"/>
+        <properties name="01_OtakuPlanter_UseCase_Diagram" type="Use Case"/>
+        <project author="Peter Brandajsky &amp; Timotej Strecko" version="1.0"/>
+        <elements>
+          <element geometry="Left=60;Top=120;Right=120;Bottom=210;" subject="EAID_ACT_USER" seqno="1"/>
+          <element geometry="Left=60;Top=320;Right=120;Bottom=410;" subject="EAID_ACT_SOIL" seqno="2"/>
+          <element geometry="Left=260;Top=60;Right=480;Bottom=130;" subject="EAID_UC_01" seqno="3"/>
+          <element geometry="Left=260;Top=160;Right=480;Bottom=230;" subject="EAID_UC_02" seqno="4"/>
+          <element geometry="Left=260;Top=320;Right=480;Bottom=390;" subject="EAID_UC_03" seqno="5"/>
+          <element geometry="Left=540;Top=110;Right=740;Bottom=180;" subject="EAID_UC_04" seqno="6"/>
+          <element geometry="Left=260;Top=240;Right=480;Bottom=305;" subject="EAID_UC_05" seqno="7"/>
+          <element subject="EAID_ASS_01"/>
+          <element subject="EAID_ASS_02"/>
+          <element subject="EAID_ASS_03"/>
+          <element subject="EAID_ASS_04"/>
+        </elements>
+      </diagram>
+
+      <!-- Diagram 2: Hardware Component Diagram -->
+      <diagram xmi:id="EAID_DIAG_ARCH">
+        <model package="EAPK_ARCH_PKG" localID="2" owner="EAPK_ARCH_PKG"/>
+        <properties name="02_OtakuPlanter_Hardware_Architecture" type="Component"/>
+        <project author="Peter Brandajsky &amp; Timotej Strecko" version="1.0"/>
+        <elements>
+          <element geometry="Left=50;Top=180;Right=230;Bottom=260;" subject="EAID_CMP_SENSOR" seqno="1"/>
+          <element geometry="Left=310;Top=180;Right=510;Bottom=270;" subject="EAID_CMP_MCU" seqno="2"/>
+          <element geometry="Left=310;Top=40;Right=510;Bottom=110;" subject="EAID_CMP_PWR" seqno="3"/>
+          <element geometry="Left=600;Top=180;Right=790;Bottom=260;" subject="EAID_CMP_DFP" seqno="4"/>
+          <element geometry="Left=600;Top=40;Right=790;Bottom=110;" subject="EAID_CMP_SD" seqno="5"/>
+          <element geometry="Left=860;Top=180;Right=1030;Bottom=260;" subject="EAID_CMP_SPK" seqno="6"/>
+          <element geometry="Left=310;Top=340;Right=510;Bottom=410;" subject="EAID_CMP_LED" seqno="7"/>
+          <element geometry="Left=50;Top=340;Right=230;Bottom=410;" subject="EAID_CMP_BODY" seqno="8"/>
+          <element subject="EAID_DEP_01"/>
+          <element subject="EAID_DEP_02"/>
+          <element subject="EAID_DEP_03"/>
+          <element subject="EAID_DEP_04"/>
+          <element subject="EAID_DEP_05"/>
+          <element subject="EAID_DEP_06"/>
+          <element subject="EAID_DEP_07"/>
+        </elements>
+      </diagram>
+
+      <!-- Diagram 3: State Machine Diagram -->
+      <diagram xmi:id="EAID_DIAG_FSM">
+        <model package="EAPK_FSM_PKG" localID="3" owner="EAID_SM_MAIN"/>
+        <properties name="03_OtakuPlanter_StateMachine" type="Statechart"/>
+        <project author="Peter Brandajsky &amp; Timotej Strecko" version="1.0"/>
+        <elements>
+          <element geometry="Left=60;Top=70;Right=80;Bottom=90;" subject="EAID_ST_START" seqno="1"/>
+          <element geometry="Left=140;Top=50;Right=320;Bottom=110;" subject="EAID_ST_INIT" seqno="2"/>
+          <element geometry="Left=400;Top=50;Right=580;Bottom=110;" subject="EAID_ST_STANDBY" seqno="3"/>
+          <element geometry="Left=400;Top=180;Right=580;Bottom=250;" subject="EAID_ST_MEASURE" seqno="4"/>
+          <element geometry="Left=400;Top=320;Right=620;Bottom=390;" subject="EAID_ST_THIRSTY" seqno="5"/>
+          <element geometry="Left=120;Top=320;Right=330;Bottom=390;" subject="EAID_ST_WAIT" seqno="6"/>
+          <element geometry="Left=120;Top=180;Right=330;Bottom=250;" subject="EAID_ST_HAPPY" seqno="7"/>
+          <element subject="EAID_TR_01"/>
+          <element subject="EAID_TR_02"/>
+          <element subject="EAID_TR_03"/>
+          <element subject="EAID_TR_04"/>
+          <element subject="EAID_TR_05"/>
+          <element subject="EAID_TR_06"/>
+          <element subject="EAID_TR_07"/>
+          <element subject="EAID_TR_08"/>
+        </elements>
+      </diagram>
+    </diagrams>
+  </xmi:Extension>
+</xmi:XMI>

@@ -133,9 +133,45 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-004-Kozel -->
 
-# ⚙️ Setup Instructions
+# ⚙️ Setup Instructions — OtakuPlanter (PRJ_004)
 
-Kroky na spustenie projektu lokálne (prerequisites, príkazy, env).
+Návod na zostavenie hardvéru, prípravu MicroSD karty a nahratie firmvéru do mikrokontroléra.
+
+---
+
+## 1. Príprava MicroSD karty
+
+1. Naformátujte MicroSD kartu (kapacita do $32\text{ GB}$) na súborový systém **FAT32**.
+2. V koreňovom adresári karty vytvorte priečinok s názvom `mp3`.
+3. Vložte zvukové súbory pomenované štvormiestnym číslom:
+   - `/mp3/0001.mp3` — Hláška pri smäde (*"Yamete kudasai! Mizu o kudasai!"*)
+   - `/mp3/0002.mp3` — Hláška po poliatí (*"Arigatō!"*)
+   - `/mp3/0003.mp3` — Uvítacia zvučka pri zapnutí (*"Ohayō!"*)
+4. Zasuňte MicroSD kartu do modulu **DFPlayer Mini**.
+
+---
+
+## 2. Zapojenie obvodu (Wiring)
+
+1. Prepojte **Kapacitný senzor v1.2** s Arduino Nano:
+   - `VCC` $\rightarrow$ `5V`, `GND` $\rightarrow$ `GND`, `AOUT` $\rightarrow$ `A0`.
+2. Prepojte **DFPlayer Mini** s Arduino Nano:
+   - `VCC` $\rightarrow$ `5V` (pridajte paralelne kondenzátor $100\,\mu\text{F}$ medzi `VCC` a `GND`),
+   - `GND` $\rightarrow$ `GND`,
+   - `RX` (pin 2 na DFPlayeri) $\rightarrow$ cez rezistor $1\text{ k}\Omega$ na pin `D11` Arduina,
+   - `TX` (pin 3 na DFPlayeri) $\rightarrow$ pin `D10` Arduina,
+   - `SPK_1` a `SPK_2` $\rightarrow$ reproduktor $8\,\Omega / 3\text{ W}$.
+3. Prepojte **indikačnú LED** (oči postavičky):
+   - Anóda (`+`) cez rezistor $220\,\Omega$ na pin `D6`, katóda (`-`) na `GND`.
+
+---
+
+## 3. Nahratie firmvéru (Arduino IDE)
+
+1. Otvorte súbor `firmware/otaku_planter/otaku_planter.ino` v **Arduino IDE**.
+2. V správcovi knižníc (*Library Manager*) nainštalujte knižnicu **`DFRobotDFPlayerMini`** (autor: DFRobot).
+3. Zvoľte dosku **Arduino Nano** (*Processor: ATmega328P* alebo *ATmega328P Old Bootloader* pri klonoch CH340).
+4. Kliknite na **Upload** a otvorte **Serial Monitor** s rýchlosťou `115200 baud` pre sledovanie nameraných hodnôt a kalibráciu prahov `DRY_THRESHOLD` a `WET_THRESHOLD`.
 
 ---
 **Navigation:** [⬆️ Up](./index.md) · [🏠 Home](../index.md)

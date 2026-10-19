@@ -133,9 +133,23 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-004-Kozel -->
 
-# 🔧 Non-Functional Requirements (NFR)
+# 🔧 Non-Functional Requirements (NFR) — OtakuPlanter (PRJ_004)
 
-Výkonnosť, bezpečnosť, dostupnosť, škálovanie.
+Nefunkčné požiadavky definujú kvalitatívne, bezpečnostné, prevádzkové a mechanické vlastnosti systému **OtakuPlanter**.
+
+---
+
+## Zoznam nefunkčných požiadaviek
+
+| ID | Kategória | Požiadavka | Metrika / Cieľová hodnota |
+|---|---|---|---|
+| **NFR-01** | **Odolnosť voči korózii (Longevity)** | Meranie vlhkosti musí prebiehať bez priameho kontaktu nechráneného kovu s vlhkým substrátom | Životnosť senzora v pôde $> 12\text{ mesiacov}$ bez oxidácie (použitie kapacitného senzora v1.2 s lakovaným okrajom) |
+| **NFR-02** | **Elektrická bezpečnosť a vodotesnosť** | Suchá komora s MCU a audio modulom musí byť hydroizolačne oddelená od mokrej zóny | 4 perimetre pri 3D tlači z PETG, hrúbka prepážky $\ge 3.2\text{ mm}$, bezpečné napätie $5\text{ V DC}$ |
+| **NFR-03** | **Odozva pri poliatí (Latency)** | Okamžitá zvuková reakcia po zaliatí smädnej rastliny | Odozva od poklesu ADC hodnoty pod `WET_THRESHOLD` po začiatok prehrávania audia $\le 2.0\text{ s}$ |
+| **NFR-04** | **Stabilita merania (Noise Immunity)** | Odolnosť voči kolísaniu ADC a falošným poplachom na hranici vyschnutia | 16-bodový kĺzavý priemer + pásmo hysterézie šírky min. $150\text{ ADC dielikov}$ |
+| **NFR-05** | **Akustická kvalita** | Zrozumiteľný hlasový výstup bez počuteľného bzučania na pozadí | Odstup rušenia zabezpečený $1\text{ k}\Omega$ rezistorom na RX linke a $100\,\mu\text{F}$ kondenzátorom na napájaní; akustická mriežka v 3D modeli |
+| **NFR-06** | **Samostatnosť (Zero-Cloud / Privacy)** | Plná funkčnosť offline bez potreby Wi-Fi, cloudového servera alebo smartfónu | $100\,\%$ lokálne spracovanie na mikrokontroléri |
+| **NFR-07** | **Udržateľnosť a servisovateľnosť** | Jednoduchý prístup k elektronike a MicroSD karte pri údržbe | Odnímateľné spodné servisné veko na $4\times\text{ M3}$ skrutky; čitateľný a komentovaný Arduino kód |
 
 ---
 **Navigation:** [⬆️ Up](./index.md) · [🏠 Home](../index.md)

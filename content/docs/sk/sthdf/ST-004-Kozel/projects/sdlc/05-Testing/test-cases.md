@@ -133,9 +133,21 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: ST-004-Kozel -->
 
-# ✅ Test Cases
+# ✅ Test Cases — OtakuPlanter (PRJ_004)
 
-Zoznam test scenárov (ID, názov, kroky, očakávaný výsledok).
+Testovacie scenáre overujúce funkčnosť senzoriky, audio subsystému, hysterézie a vodotesnosti 3D tlačeného kvetináča.
+
+---
+
+## Prehľad testovacích scenárov
+
+| ID | Názov testu | Vstup / Kroky | Očakávaný výsledok | Priorita |
+|---|---|---|---|---|
+| **TC-01** | **Kalibrácia senzora na vzduchu a vo vode** | 1. Ponechať senzor na suchom vzduchu.<br>2. Ponoriť senzor po rysku do pohára s vodou.<br>3. Sledovať výpis v Serial Monitore. | Hodnota na vzduchu $\approx 720 - 800$, vo vode $\approx 280 - 340$. Kĺzavý priemer nekolíše o viac ako $\pm 3$ dieliky. | **High** |
+| **TC-02** | **Spustenie alarmu smädu (Dry Trigger)** | 1. Vložiť senzor do suchého substrátu (`ADC > 620`).<br>2. Počkať na vyhodnotenie 16 vzoriek. | Prechod do stavu `ALERT_THIRSTY`, rozsvietenie/blikanie LED na pine `D6` a prehratie stopy `/mp3/0001.mp3` (*"Yamete kudasai!"*). | **High** |
+| **TC-03** | **Reakcia na poliatie (Watered Trigger)** | 1. V stave `WAIT_WATER` naliať $100\text{ ml}$ vody ku koreňom.<br>2. Sledovať pokles ADC pod `WET_THRESHOLD` ($< 450$). | Okamžité (do $2\text{ s}$) prehratie stopy `/mp3/0002.mp3` (*"Arigatō!"*), LED prejde do pokojného stavu a stavový automat do `STANDBY`. | **High** |
+| **TC-04** | **Overenie hysterézie a Cooldownu** | 1. Udržiavať vlhkosť na hrane prahu (`ADC` medzi $460$ a $610$).<br>2. Sledovať správanie počas 10 minút. | Žiadne falošné prepínanie stavov ani neustále opakovanie zvuku. Pripomienka smädu sa zopakuje až po uplynutí `REMINDER_COOLDOWN`. | **Medium** |
+| **TC-05** | **Hydroizolačný test 3D výtlačku** | 1. Do vytlačenej kvetináčovej komory (bez elektroniky) naliať $250\text{ ml}$ zafarbenej vody na 24 hodín.<br>2. Skontrolovať papierovú servítku v suchej komore. | Servítka v elektronickej komore zostáva 100 % suchá; prebytočná voda vyteká výhradne cez drenážny kanálik. | **High** |
 
 ---
 **Navigation:** [⬆️ Up](./index.md) · [🏠 Home](../index.md)
