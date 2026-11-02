@@ -1,115 +1,90 @@
-# STHDF class template 2026-2027
+# Anime Planter // Inteligentný kvetináč
 
-Toto je šablóna repozitára pre predmet **Systémové myslenie v IT a digitálna
-fabrikácia** (FIIT STU). Neklonuje sa cez GitHub Classroom — každý študent si
-z nej urobí **vlastný, čistý klon bez histórie** a pracuje vo svojom repozitári.
+> **Projekt:** Inteligentný kvetináč s figúrkou Grimmjowa — BLEACH × Smart Hardware  
+> **Predmet:** Systémové myslenie v IT a digitálna fabrikácia (STHDF / SMVIT 2026/2027)  
+> **Univerzita:** Fakulta informatiky a informačných technológií, Slovenská technická univerzita v Bratislave (FIIT STU)  
+> **Autori:** Bc. Peter Brandajský (`ST004`) & Bc. Timotej Strečko (`ST013`)  
+> **Webová prezentácia:** [`index.html`](./index.html) *(interaktívny 3D model, zvukový simulátor a technický rez)*  
 
-## 1. Predpoklady
+---
 
-- nainštalovaný [Git](https://git-scm.com/downloads)
-- vlastný GitHub účet
+## 💡 O projekte
 
-## 2. Vytvor si vlastný klon (bez histórie)
+**Anime Planter** je inteligentný kvetináč navrhnutý pre sukulenty a izbové rastliny, ktorý spája **3D digitálnu fabrikáciu** a **lokálny vstavaný hardvér**:
 
-Klonovanie tejto šablóny normálnym `git clone` by ti do repozitára prenieslo
-aj celú jej históriu — to nechceme. Postav sa v termináli do priečinka,
-**v ktorom** má vzniknúť tvoj projekt (napr. `~/Skola/STHDF/`) — príkaz nižšie
-si `ST-042-MojeMeno` vytvorí sám ako podpriečinok. Potom spusti:
+- **Fyzický dizajn:** 140 mm vysoká 3D tlačená figúrka Grimmjowa v sediacej póze, ktorej lono slúži ako lôžko pre valcový kvetináč s priemerom **Ø 78 mm**.
+- **Autonómna prevádzka:** Zariadenie nepotrebuje žiadnu mobilnú aplikáciu, Wi-Fi ani cloud. Funguje 100% lokálne v izbe okamžite po pripojení 5V napájania.
+- **Akustické hlášky:** Modul **DFPlayer Mini** a 0.5W reproduktor v reálnom čase prehrávajú hlasové reakcie postavy. Keď pôda vyschne, figúrka si vypýta vodu (*„Yamete kudasai! Mizu o kudasai!“*). Po zaliatí sa poďakuje (*„Arigatō!“*).
+- **Nekorodujúci kapacitný senzor:** Na rozdiel od bežných odporových senzorov, ktoré kvôli elektrolýze do pár týždňov zhrdzavejú, kapacitný senzor v1.2 meria permitivitu pôdy bez priameho kontaktu medi s vodou.
+- **Dvojkomorová konštrukcia:** Vrchná vlhká pestovateľská komora (hĺbka 50 mm) je od spodnej suchej komory s elektronikou (výška 30 mm) hermeticky oddelená vodotesnou prepážkou s tesnením.
 
-```bash
-git clone --depth 1 https://github.com/06-STH-Projects/2026_sthdf_class_template.git ST-042-MojeMeno
-cd ST-042-MojeMeno
-rm -rf .git
-git init
-git add -A
-git commit -m "Initial commit"
+---
+
+## 📂 Čo sa nachádza v repozitári
+
+| Súbor / Priečinok | Typ | Popis |
+|---|---|---|
+| [`index.html`](./index.html) | Webový showcase | Kompletná interaktívna prezentácia s Three.js 3D prehliadačom figúrky, interaktívnym zvukovým simulátorom, technickým nákresom a kusovníkom. |
+| [`3d_models/`](./3d_models/) | 3D modely (STL / FBX) | Modely pripravené na 3D tlač: `grimmjow_140mm_ready.stl` (spojený meč a záštita pri páse, mierka 140 mm) a pôvodné zdrojové súbory. |
+| [`firmware/`](./firmware/) | Arduino C++ | Firmvér `otaku_planter.ino` s 16-násobným kruhovým priemerovaním, hysteréziou pre ochranu pred kmitaním stavov a UART ovládaním audio modulu. |
+| [`EA_ST004_AutoLogin.eaps`](./EA_ST004_AutoLogin.eaps) | Enterprise Architect | Konfiguračné pripojenie na centrálny Enterprise Architect model (UML Use Case, Component a State Machine diagramy). |
+| [`OtakuPlanter.qea`](./OtakuPlanter.qea) | Enterprise Architect | Lokálny SQLite model systémovej architektúry projektu. |
+| [`OtakuPlanter_Pitch_Presentation.pptx`](./OtakuPlanter_Pitch_Presentation.pptx) | Prezentácia | 6-slajdový Pitch Deck projektu (Problém, Riešenie, Hodnota, Hardvér, Tím). |
+| [`content/docs/`](./content/docs/) | Dokumentácia STHDF | 7 povinných akademických výstupov predmetu (About Me, KNIFE príspevky, Project Summary, Outcomes, Pitch, Final a Reflexia). |
+
+---
+
+## 👥 Tím a rozdelenie úloh
+
+- **Bc. Peter Brandajský (`ST004`)** — *Firmware, Electronics & Architecture Lead*  
+  Návrh elektronického obvodu, zapojenie senzorov a audio dekodéra, C++ firmvér pre Arduino Nano s kruhovým filtrom a hysteréziou, systémové modelovanie v Enterprise Architect (UML/SysML).
+
+- **Bc. Timotej Strečko (`ST013`)** — *3D CAD & Digital Fabrication Lead*  
+  Úprava a čistenie 3D modelu figúrky, návrh dvojkomorového tela kvetináča, slicovanie v PrusaSliceri a FDM tlač na 3D tlačiarni (PLA/PETG).
+
+---
+
+## 🛠️ Hardvérová architektúra & Zapojenie pinov
+
+```
++-----------------------------------------------------------+
+|               HORNÁ PESTOVATEĽSKÁ KOMORA                  |
+|  - Hĺbka: 50 mm, priemer: Ø 78 mm                         |
+|  - Kapacitný senzor vlhkosti v1.2 (ponor 45 mm v pôde)    |
++-----------------------------------------------------------+
+| ====== VODOTESNÁ PREPÁŽKA (4 perimetre + O-krúžok) ====== |
++-----------------------------------------------------------+
+|                 SPODNÁ SUCHÁ KOMORA                       |
+|  - Výška: 30 mm                                           |
+|  - Arduino Nano (ATmega328P, 5V napájanie)                |
+|  - DFPlayer Mini + MicroSD karta s MP3 hláškami           |
+|  - 8Ω 0.5W reproduktor so smerovanými zvukovými štrbinami |
+|  - Mini nepájivé pole (montáž bez nutnosti leptania DPS)  |
++-----------------------------------------------------------+
 ```
 
-Výsledok: priečinok `ST-042-MojeMeno/` obsahuje celý obsah šablóny, ale ako
-**nový, samostatný git repozitár s jedným commitom** — žiadna história
-šablóny sa neprenáša.
+| Komponent | Pin na komponente | Pin na Arduino Nano | Funkcia |
+|---|---|---|---|
+| **Kapacitný senzor v1.2** | VCC / GND | `5V` / `GND` | Napájanie senzora |
+| | AOUT | `A0` | Analógový vstup vlhkosti (ADC 0–1023) |
+| **DFPlayer Mini** | VCC / GND | `5V` / `GND` | Napájanie audio radiča |
+| | TX | `D10` | SoftwareSerial RX na Arduine |
+| | RX | `D11` | SoftwareSerial TX (cez 1 kΩ ochranný rezistor) |
+| | SPK_1 / SPK_2 | Reproduktor | Výstup na 8Ω 0.5W reproduktor |
+| **Indikačná LED** | Anóda (+) | `D6` | PWM signál dýchania očí postavičky |
 
-> Skript, ktorý spraví presne toto isté jedným príkazom, je v
-> [`tools/clone-student-template.sh`](tools/clone-student-template.sh):
-> `./clone-student-template.sh ST-042-MojeMeno`
+---
 
-### Pomenovanie priečinka
+## 🛒 Kusovník (BOM) — 16,20 €
 
-- **Individuálna práca:** `ST-XXX-MojeMeno` (napr. `ST-042-JanNovak`)
-- **Tímový projekt:** `PRJ-YYY-NazovProjektu` (napr. `PRJ-017-SmartClock`)
+Všetky komponenty boli vybrané s ohľadom na okamžitú dostupnosť u slovenského dodávateľa:
 
-Toto pomenovanie (`ST-XXX` / `PRJ-YYY`) sa používa aj neskôr, keď budeš svoje
-výstupy publikovať do triedneho repozitára — drž sa ho od začiatku.
+1. **Kapacitný senzor vlhkosti pôdy v1.2** — 1,50 €
+2. **DFPlayer Mini MP3 prehrávač** — 2,75 €
+3. **Arduino Nano klon (Micro USB, ATmega328P)** — 5,45 €
+4. **Reproduktor 8Ω 0.5W (Ø 40 mm)** — 0,60 €
+5. **Prepojovacie kábliky Dupont (40 ks)** — 2,20 €
+6. **Mini nepájivé pole (170 bodov, 45 × 35 mm)** — 0,40 €
+7. **Sada metalických rezistorov (30 hodnôt vrátane 1 kΩ a 220 Ω)** — 2,90 €
 
-## 3. Založ si vlastný repozitár na GitHube
-
-1. Na [github.com/new](https://github.com/new) si založ **prázdny** repozitár
-   (bez README, bez `.gitignore` — tie už máš z klonu).
-2. Pripoj ho ako remote a pushni:
-
-```bash
-git remote add origin <URL-tvojho-noveho-repozitara>
-git branch -M main
-git push -u origin main
-```
-
-Odteraz pracuješ vo svojom vlastnom repozitári, nezávisle od šablóny.
-
-> **Žiadny osobitný "školský server" neexistuje.** Repozitár z kroku 3 je
-> obyčajný osobný GitHub účet — nič iné netreba zakladať. Ak GitHub účet
-> ešte nemáš, založ si ho zadarmo na [github.com/join](https://github.com/join).
-
-## 4. Vytvor si svojich 7 povinných sekcií
-
-Klon zatiaľ neobsahuje hotové súbory na vyplnenie — vytvoríš si ich
-jedným príkazom:
-
-```bash
-make S31-sthdf-new STHDF_NAME=ST-042-MojeMeno STHDF_TITLE="ST-042 Moje Meno" LOCALE=sk
-```
-
-Výsledok: `content/docs/sk/sthdf/ST-042-MojeMeno/students/` — priečinok
-so 7 sekciami (About Me, Knowledge Contribution, Project Summary,
-Project Outcomes, Pitch Presentation, Final Presentation, Reflexia),
-každá ako samostatný podpriečinok s `index.md` na vyplnenie. Začni od
-`students/index.md` — je to rozcestník s checklistom.
-
-> `STHDF_NAME` použi rovnaké ako názov priečinka z kroku 2 (`ST-XXX-...`
-> / `PRJ-YYY-...`).
-
-## 5. Tvoj výstup a triedny repozitár
-
-Tento predmet nepoužíva GitHub Classroom sync — tvoj repozitár je od
-šablóny aj od triedneho repozitára úplne nezávislý a **taký aj
-zostáva**. Prenos do triedneho dashboardu (`students/ST0XX/`) rieši
-vyučujúci na svojej strane — nie je to tvoja úloha.
-
-Tvoja jediná úloha:
-1. Vyplň si vo vlastnom repozitári všetkých 7 sekcií z kroku 4.
-2. Zisti si svoje pridelené číslo `ST0XX` (roster u vyučujúceho).
-3. Zdieľaj odkaz na svoj hotový repozitár tam, kde ti povie vyučujúci.
-
-Podrobnejšie vysvetlenie (aj prečo takto a nie inak) je v
-[K000119 – Ako si vytvoriť čistý klon triedneho repozitára](https://knifes.systemthinking.sk/sk/knifes/K000119-klon-triedneho-repozitara)
-(krok 6).
-
-## 6. Čo je vnútri
-
-| Priečinok | Obsah |
-|---|---|
-| `content/docs/sk/` (`en/`) | tvoj obsah — 7Ds, SDLC, Q12, STHDF, KNIFE |
-| `core/` | zdieľané nástroje a automatizácia (Makefile targets, generátory) |
-| `config/` | konfigurácia jednotlivých metodík |
-| `publishing/docusaurus/` | Docusaurus stránka, ak si obsah chceš publikovať |
-
-Rýchly prehľad dostupných príkazov: `make help`
-
-## 7. Odkazy
-
-- 🧭 Portál predmetu: [sthdf.systemthinking.sk](https://sthdf.systemthinking.sk)
-- 📚 KNIFE dokumentácia: [knifes.systemthinking.sk](https://knifes.systemthinking.sk)
-
-## License
-
-- **Kód a skripty**: [MIT License](./LICENSE)
-- **Vzdelávací obsah a dokumentácia** (`.md` súbory, metodiky, poznámky): [CC-BY 4.0 License](./LICENSE-DOCS)
+**Celkový rozpočet hardvéru: 16,20 € s DPH.**
