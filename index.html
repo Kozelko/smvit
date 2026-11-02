@@ -213,40 +213,6 @@
       box-sizing: border-box;
     }
 
-    /* Concentric Spirit Rings (Halos behind Aizen) */
-    .hero-spirit-ring {
-      position: absolute;
-      left: 50%;
-      top: 46%;
-      transform: translate(-50%, -50%);
-      width: 480px;
-      height: 480px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(157, 78, 221, 0.4);
-      box-shadow: 0 0 40px rgba(157, 78, 221, 0.25), inset 0 0 40px rgba(0, 229, 255, 0.12);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero-spirit-ring-outer {
-      position: absolute;
-      left: 50%;
-      top: 46%;
-      transform: translate(-50%, -50%);
-      width: 620px;
-      height: 620px;
-      border-radius: 50%;
-      border: 1px dashed rgba(0, 229, 255, 0.22);
-      pointer-events: none;
-      z-index: 0;
-      animation: rotateRing 80s linear infinite;
-    }
-
-    @keyframes rotateRing {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
     /* 3-Column Centered Aizen Layout */
     .hero-center-stage {
       display: grid;
@@ -333,7 +299,7 @@
       font-weight: 400;
     }
 
-    /* Column 2: Centered Aizen in his glory with floating, reiatsu aura & interactive hover */
+    /* Column 2: Centered Aizen with smooth zoom & Reiatsu flare */
     .hero-col-center {
       display: flex;
       justify-content: center;
@@ -345,118 +311,51 @@
     .hero-aizen-center-frame {
       position: relative;
       width: 100%;
-      max-width: 460px;
+      max-width: 480px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
     }
 
-    /* Floating Reiatsu tag over Aizen that reveals on hover */
-    .hero-aizen-badge {
-      position: absolute;
-      top: 2%;
-      left: 50%;
-      transform: translateX(-50%) translateY(8px);
-      background: rgba(8, 7, 13, 0.94);
-      border: 1px solid var(--accent-cyan);
-      box-shadow: 0 0 25px rgba(0, 229, 255, 0.5), inset 0 0 12px rgba(157, 78, 221, 0.3);
-      padding: 0.35rem 0.95rem;
-      border-radius: var(--radius-full);
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--accent-cyan);
-      text-transform: uppercase;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 35;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .hero-aizen-badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #d946ef;
-      box-shadow: 0 0 8px #d946ef;
-      display: inline-block;
-    }
-
-    .hero-aizen-center-frame:hover .hero-aizen-badge {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
     .hero-aizen-center-img {
-      max-height: 70vh;
+      max-height: 72vh;
       max-width: 100%;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 32px rgba(157, 78, 221, 0.65)) drop-shadow(0 0 65px rgba(0, 229, 255, 0.25));
       position: relative;
       z-index: 20;
-      animation: aizenFloat 6s ease-in-out infinite alternate;
-      -webkit-mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 25px rgba(157, 78, 221, 0.3));
+      -webkit-mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+      transition: transform 0.4s cubic-bezier(0.2, 0.85, 0.25, 1), filter 0.4s cubic-bezier(0.2, 0.85, 0.25, 1);
       will-change: transform, filter;
     }
 
-    @keyframes aizenFloat {
-      0% {
-        transform: translateY(0);
-        filter: drop-shadow(0 0 28px rgba(157, 78, 221, 0.55)) drop-shadow(0 0 50px rgba(0, 229, 255, 0.2));
-      }
-      100% {
-        transform: translateY(-8px);
-        filter: drop-shadow(0 0 45px rgba(157, 78, 221, 0.85)) drop-shadow(0 0 80px rgba(0, 229, 255, 0.4));
-      }
-    }
-
-    /* Hover effect: Aizen scales up, enters absolute foreground, explosive glow */
-    .hero-aizen-center-frame:hover .hero-aizen-center-img {
-      animation-play-state: paused;
-      transform: scale(1.09) translateY(-14px);
-      filter: drop-shadow(0 0 50px rgba(217, 70, 239, 1)) drop-shadow(0 0 95px rgba(0, 229, 255, 0.85)) drop-shadow(0 0 140px rgba(157, 78, 221, 0.65)) brightness(1.12) contrast(1.05);
-      z-index: 50;
-    }
-
+    /* Soft ambient aura in background */
     .hero-aizen-center-aura {
       position: absolute;
       inset: -15%;
-      background: radial-gradient(circle at center, rgba(157, 78, 221, 0.35) 0%, rgba(0, 229, 255, 0.1) 45%, transparent 72%);
-      filter: blur(45px);
+      background: radial-gradient(circle at center, rgba(157, 78, 221, 0.22) 0%, rgba(0, 229, 255, 0.08) 45%, transparent 70%);
+      filter: blur(50px);
       z-index: 1;
       pointer-events: none;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0.6;
+      transition: all 0.45s cubic-bezier(0.2, 0.85, 0.25, 1);
+    }
+
+    /* Hover Zoom & Effect: Aizen zooms up, steps into foreground, Reiatsu aura blooms */
+    .hero-aizen-center-frame:hover .hero-aizen-center-img {
+      transform: scale(1.14) translateY(-10px);
+      filter: drop-shadow(0 0 35px rgba(217, 70, 239, 0.95)) drop-shadow(0 0 75px rgba(0, 229, 255, 0.75)) drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95)) brightness(1.1) contrast(1.04);
+      z-index: 50;
     }
 
     .hero-aizen-center-frame:hover .hero-aizen-center-aura {
-      background: radial-gradient(circle at center, rgba(217, 70, 239, 0.65) 0%, rgba(0, 229, 255, 0.35) 45%, transparent 75%);
-      filter: blur(60px);
-      transform: scale(1.22);
-    }
-
-    /* Stage card reactions when hovering over Aizen */
-    .hero-stage-card:has(.hero-aizen-center-frame:hover) .hero-spirit-ring {
-      border-color: rgba(217, 70, 239, 0.7);
-      box-shadow: 0 0 65px rgba(217, 70, 239, 0.5), inset 0 0 60px rgba(0, 229, 255, 0.3);
-      transform: translate(-50%, -50%) scale(1.08);
-      transition: all 0.45s ease;
-    }
-
-    .hero-stage-card:has(.hero-aizen-center-frame:hover) .hero-spirit-ring-outer {
-      border-color: rgba(0, 229, 255, 0.55);
-      transform: translate(-50%, -50%) scale(1.06);
-      animation-duration: 25s;
-      transition: all 0.45s ease;
+      opacity: 1;
+      transform: scale(1.35);
+      background: radial-gradient(circle at center, rgba(217, 70, 239, 0.5) 0%, rgba(0, 229, 255, 0.25) 50%, transparent 75%);
+      filter: blur(65px);
     }
 
     /* Column 3: Right Column Specs & Quote */
@@ -1377,14 +1276,6 @@
         padding: 1.75rem 1.25rem 1.25rem 1.25rem;
         min-height: auto;
       }
-      .hero-spirit-ring {
-        width: 340px;
-        height: 340px;
-      }
-      .hero-spirit-ring-outer {
-        width: 440px;
-        height: 440px;
-      }
       .hero-center-stage {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1408,14 +1299,6 @@
       .hero-stage-card {
         padding: 1.25rem 1rem 1rem 1rem;
         border-radius: 14px;
-      }
-      .hero-spirit-ring {
-        width: 260px;
-        height: 260px;
-      }
-      .hero-spirit-ring-outer {
-        width: 320px;
-        height: 320px;
       }
       .hero-bottom-stats, .soundboard-grid, .downloads-grid {
         grid-template-columns: 1fr;
@@ -1457,10 +1340,6 @@
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-stage-card">
-        <!-- Concentric Spirit Halos behind Aizen -->
-        <div class="hero-spirit-ring"></div>
-        <div class="hero-spirit-ring-outer"></div>
-
         <div class="hero-center-stage">
           
           <!-- Column 1: Identity & Primary CTAs (Left) -->
@@ -1494,10 +1373,9 @@
             </div>
           </div>
 
-          <!-- Column 2: Centered Aizen with Hover Zoom & Pop-to-Front (Center) -->
+          <!-- Column 2: Centered Aizen with Smooth Zoom & Pop-to-Front (Center) -->
           <div class="hero-col hero-col-center">
-            <div class="hero-aizen-center-frame" onclick="if(window.playVoiceFeedback) playVoiceFeedback('aizen');" title="Klikni na Aizena pre Reiatsu rezonanciu">
-              <div class="hero-aizen-badge">⚡ Reiatsu Aura // Hōgyoku</div>
+            <div class="hero-aizen-center-frame" onclick="if(window.playVoiceFeedback) playVoiceFeedback('aizen');" title="Klikni na Aizena">
               <img src="assets/aizen_cut.png" alt="Sōsuke Aizen" class="hero-aizen-center-img" />
               <div class="hero-aizen-center-aura"></div>
             </div>
