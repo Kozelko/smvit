@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anime Planter // Inteligentný kvetináč — BLEACH × Smart Hardware</title>
+  <title>Anime Planter // Smart Plant Pot — BLEACH × Smart Hardware</title>
   
   <!-- Preload fonts & model data -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,19 +168,6 @@
       overflow: hidden;
     }
 
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 10%;
-      right: 15%;
-      width: 580px;
-      height: 580px;
-      background: radial-gradient(circle, rgba(157, 78, 221, 0.22) 0%, rgba(0, 229, 255, 0.06) 45%, transparent 70%);
-      filter: blur(55px);
-      pointer-events: none;
-      z-index: 1;
-    }
-
     .hero-container {
       max-width: 1320px;
       margin: 0 auto;
@@ -299,7 +286,7 @@
       font-weight: 400;
     }
 
-    /* Column 2: Centered Aizen with smooth zoom & Reiatsu flare */
+    /* Column 2: Centered Aizen with smooth zoom */
     .hero-col-center {
       display: flex;
       justify-content: center;
@@ -325,37 +312,15 @@
       object-fit: contain;
       position: relative;
       z-index: 20;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 25px rgba(157, 78, 221, 0.3));
-      -webkit-mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
-      transition: transform 0.4s cubic-bezier(0.2, 0.85, 0.25, 1), filter 0.4s cubic-bezier(0.2, 0.85, 0.25, 1);
-      will-change: transform, filter;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85));
+      transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1);
+      will-change: transform;
     }
 
-    /* Soft ambient aura in background */
-    .hero-aizen-center-aura {
-      position: absolute;
-      inset: -15%;
-      background: radial-gradient(circle at center, rgba(157, 78, 221, 0.22) 0%, rgba(0, 229, 255, 0.08) 45%, transparent 70%);
-      filter: blur(50px);
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0.6;
-      transition: all 0.45s cubic-bezier(0.2, 0.85, 0.25, 1);
-    }
-
-    /* Hover Zoom & Effect: Aizen zooms up, steps into foreground, Reiatsu aura blooms */
+    /* Clean Zoom: Aizen smoothly zooms in */
     .hero-aizen-center-frame:hover .hero-aizen-center-img {
-      transform: scale(1.14) translateY(-10px);
-      filter: drop-shadow(0 0 35px rgba(217, 70, 239, 0.95)) drop-shadow(0 0 75px rgba(0, 229, 255, 0.75)) drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95)) brightness(1.1) contrast(1.04);
+      transform: scale(1.1) translateY(-8px);
       z-index: 50;
-    }
-
-    .hero-aizen-center-frame:hover .hero-aizen-center-aura {
-      opacity: 1;
-      transform: scale(1.35);
-      background: radial-gradient(circle at center, rgba(217, 70, 239, 0.5) 0%, rgba(0, 229, 255, 0.25) 50%, transparent 75%);
-      filter: blur(65px);
     }
 
     /* Column 3: Right Column Specs & Quote */
@@ -470,38 +435,15 @@
       color: var(--text-muted);
     }
 
-    /* Frame Bottom Accents & Stats */
+    /* Frame Bottom Stats */
     .hero-frame-bottom {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
       margin-top: 1.25rem;
       padding-top: 1.25rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       z-index: 2;
       position: relative;
-    }
-
-    .frame-dots {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-    }
-
-    .f-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.2s ease;
-    }
-
-    .f-dot.active {
-      background: var(--accent-cyan);
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 8px var(--accent-cyan);
-      transform: scale(1.2);
     }
 
     .hero-cta-group {
@@ -1319,10 +1261,10 @@
 
     <nav class="nav-links">
       <a href="#model-3d" class="nav-link">3D Model</a>
-      <a href="#konstrukcia" class="nav-link">Konštrukcia</a>
-      <a href="#hlas" class="nav-link">Zvukový systém</a>
-      <a href="#kusovnik" class="nav-link">Kusovník</a>
-      <a href="#stiahnutie" class="nav-link">Súbory</a>
+      <a href="#konstrukcia" class="nav-link">Engineering</a>
+      <a href="#hlas" class="nav-link">Voice System</a>
+      <a href="#kusovnik" class="nav-link">BOM &amp; Hardware</a>
+      <a href="#stiahnutie" class="nav-link">Downloads</a>
     </nav>
 
     <div class="nav-badges">
@@ -1356,28 +1298,27 @@
             </h1>
 
             <p class="hero-desc">
-              Interaktívny smart kvetináč s figúrkou v sediacej póze. 
-              Kombinácia dvojkomorovej 3D tlače, nekorodujúceho kapacitného senzora a zvukového modulu DFPlayer Mini 
-              zabezpečuje okamžité hlasové upozornenie bez mobilnej aplikácie a bez cloudu.
+              Interactive smart plant pot with an anime figure in a sitting pose. 
+              Dual-chamber 3D printed structure, corrosion-free capacitive moisture sensor, and DFPlayer Mini sound module 
+              provide instant offline voice feedback with zero cloud dependencies and no mobile app required.
             </p>
 
             <div class="hero-cta-group">
               <a href="#model-3d" class="btn-primary">
-                <span>Preskúmať 3D Model</span>
+                <span>Explore 3D Model</span>
                 <span>↓</span>
               </a>
               <a href="#kusovnik" class="btn-secondary">
-                <span>Kusovník (16,20 €)</span>
+                <span>BOM (16.20 €)</span>
                 <span>↗</span>
               </a>
             </div>
           </div>
 
-          <!-- Column 2: Centered Aizen with Smooth Zoom & Pop-to-Front (Center) -->
+          <!-- Column 2: Centered Aizen with Smooth Clean Zoom (Center) -->
           <div class="hero-col hero-col-center">
             <div class="hero-aizen-center-frame" onclick="if(window.playVoiceFeedback) playVoiceFeedback('aizen');">
               <img src="assets/aizen_cut.png" alt="Sōsuke Aizen" class="hero-aizen-center-img" />
-              <div class="hero-aizen-center-aura"></div>
             </div>
           </div>
 
@@ -1385,11 +1326,11 @@
           <div class="hero-col hero-col-right">
             <div class="aizen-quote-card">
               <div class="quote-header">
-                <span class="quote-tag">MUKEN // CITÁT</span>
+                <span class="quote-tag">MUKEN // QUOTE</span>
                 <span class="quote-icon">“</span>
               </div>
               <div class="aizen-quote-body">
-                „Odkedy si žil v ilúzii, že táto rastlina nepotrebuje vodu?“
+                “Since when were you under the impression that this plant didn't need water?”
               </div>
               <div class="aizen-quote-author">— Sōsuke Aizen</div>
             </div>
@@ -1398,60 +1339,53 @@
               <div class="feature-item">
                 <div class="feature-bullet cyan">01</div>
                 <div class="feature-text">
-                  <strong>100% Autonómny systém</strong>
-                  <span>Bez mobilnej aplikácie, Wi-Fi a cloudu</span>
+                  <strong>100% Autonomous System</strong>
+                  <span>No mobile app, Wi-Fi, or cloud required</span>
                 </div>
               </div>
               <div class="feature-item">
                 <div class="feature-bullet green">02</div>
                 <div class="feature-text">
-                  <strong>Nekorodujúci senzor v1.2</strong>
-                  <span>Kapacitné meranie bez elektrolýzy medi</span>
+                  <strong>Corrosion-Free Sensor v1.2</strong>
+                  <span>Capacitive sensing without copper electrolysis</span>
                 </div>
               </div>
               <div class="feature-item">
                 <div class="feature-bullet purple">03</div>
                 <div class="feature-text">
-                  <strong>DFPlayer Mini hlas</strong>
-                  <span>Priama akustická spätná väzba v izbe</span>
+                  <strong>DFPlayer Mini Voice</strong>
+                  <span>Direct acoustic audio feedback in the room</span>
                 </div>
               </div>
             </div>
 
             <a href="https://github.com/Kozelko/smvit" target="_blank" rel="noopener" class="btn-secondary" style="width: 100%; justify-content: center; gap: 0.5rem;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub Repozitár</span>
+              <span>GitHub Repository</span>
               <span style="font-size: 0.7rem; opacity: 0.7;">↗</span>
             </a>
           </div>
 
         </div>
 
-        <!-- Frame Bottom Accents & Stats inside Card -->
+        <!-- Frame Bottom Stats inside Card -->
         <div class="hero-frame-bottom">
-          <div class="frame-dots">
-            <span class="f-dot"></span>
-            <span class="f-dot active"></span>
-            <span class="f-dot"></span>
-            <span class="f-dot"></span>
-          </div>
-
           <div class="hero-bottom-stats">
             <div class="hero-stat-card">
               <span class="hero-stat-val cyan">140 mm</span>
-              <span class="hero-stat-label">Výška figúrky (FDM PLA)</span>
+              <span class="hero-stat-label">Figure Height (FDM PLA)</span>
             </div>
             <div class="hero-stat-card">
               <span class="hero-stat-val purple">Ø 78 mm</span>
-              <span class="hero-stat-label">Priemer kvetináča v lone</span>
+              <span class="hero-stat-label">Pot Cavity Diameter</span>
             </div>
             <div class="hero-stat-card">
-              <span class="hero-stat-val green">16,20 €</span>
-              <span class="hero-stat-label">Cena súčiastok (Techfun.sk)</span>
+              <span class="hero-stat-val green">16.20 €</span>
+              <span class="hero-stat-label">Hardware Cost (Techfun.sk)</span>
             </div>
             <div class="hero-stat-card">
               <span class="hero-stat-val">0 Apps</span>
-              <span class="hero-stat-label">100% autonómne v izbe</span>
+              <span class="hero-stat-label">100% Offline &amp; Autonomous</span>
             </div>
           </div>
         </div>
@@ -1464,8 +1398,8 @@
   <section id="model-3d" class="section-wrap">
     <div class="section-header">
       <div class="section-title-wrap">
-        <span class="section-kicker">01 // 3D DIGITÁLNA FABRIKÁCIA</span>
-        <h2 class="section-title">Interaktívny 3D Model Figúrky</h2>
+        <span class="section-kicker">01 // 3D DIGITAL FABRICATION</span>
+        <h2 class="section-title">Interactive 3D Figure Model</h2>
       </div>
       <span class="section-tag">THREE.JS // GLTF 2.0 BINARY</span>
     </div>
@@ -1477,15 +1411,15 @@
 
         <div id="three-loader" class="viewer-loader">
           <div class="loader-ring"></div>
-          <span>NAČÍTAVAM 3D MODEL GRIMMJOWA...</span>
+          <span>LOADING 3D MODEL...</span>
         </div>
 
         <div class="viewer-overlay-toolbar">
           <div class="viewer-hint">
-            <span>🖱️ Ťahanie: Otáčanie • Koliesko: Zoom</span>
+            <span>🖱️ Drag: Rotate • Scroll: Zoom</span>
           </div>
           <div class="viewer-controls">
-            <button id="btn-rotate" class="btn-ctrl active">⏸ Auto-rotácia</button>
+            <button id="btn-rotate" class="btn-ctrl active">⏸ Auto-Rotate</button>
             <button id="btn-wireframe" class="btn-ctrl">🕸️ Wireframe</button>
             <button id="btn-reset" class="btn-ctrl">🎯 Reset</button>
           </div>
@@ -1498,42 +1432,42 @@
           <span class="sidebar-subtitle">BLENDER 4.3 → PRUSASLICER</span>
           <h3>Grimmjow Arrancar #6</h3>
           <p class="sidebar-desc">
-            Sediaca póza vytvorená v Blenderi so zachovanou anime textúrou. 
-            Poloha nôh tvorí presné lôžko pre valcový kvetináč s priemerom 78 mm.
+            Sitting pose sculpted in Blender preserving original anime textures. 
+            The leg posture forms a precision docking cradle for the cylindrical 78 mm planter pot.
           </p>
 
           <div class="specs-grid">
             <div class="spec-box">
-              <span class="spec-key">Cieľová výška</span>
+              <span class="spec-key">Target Height</span>
               <span class="spec-value">140 mm (14 cm)</span>
             </div>
             <div class="spec-box">
-              <span class="spec-key">Lôžko na kvetináč</span>
+              <span class="spec-key">Pot Docking Cavity</span>
               <span class="spec-value">Ø 75 – 80 mm</span>
             </div>
             <div class="spec-box">
-              <span class="spec-key">Polygóny</span>
-              <span class="spec-value">3 936 faces</span>
+              <span class="spec-key">Polygons</span>
+              <span class="spec-value">3,936 faces</span>
             </div>
             <div class="spec-box">
-              <span class="spec-key">Materiál</span>
-              <span class="spec-value">PLA Biela / Modrá</span>
+              <span class="spec-key">Filament Material</span>
+              <span class="spec-value">PLA White / Blue</span>
             </div>
           </div>
 
           <div style="margin-top: 1rem;">
-            <span class="spec-key">Rýchle uhly kamery</span>
+            <span class="spec-key">Quick Camera Angles</span>
             <div class="preset-angles">
-              <button class="preset-btn" id="cam-front">Pohľad spredu</button>
-              <button class="preset-btn" id="cam-iso">Izometrický 45°</button>
-              <button class="preset-btn" id="cam-top">Lono (Kvetináč)</button>
+              <button class="preset-btn" id="cam-front">Front View</button>
+              <button class="preset-btn" id="cam-iso">Isometric 45°</button>
+              <button class="preset-btn" id="cam-top">Lap (Pot Cavity)</button>
             </div>
           </div>
         </div>
 
         <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--bg-surface-border);">
           <a href="3d_models/grimmjow_140mm_ready.stl" download class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.85rem; padding: 0.75rem;">
-            <span>Stiahnuť STL pre tlač (140 mm)</span>
+            <span>Download STL for 3D Printing (140 mm)</span>
             <span>⬇</span>
           </a>
         </div>
@@ -1545,8 +1479,8 @@
   <section id="konstrukcia" class="section-wrap">
     <div class="section-header">
       <div class="section-title-wrap">
-        <span class="section-kicker">02 // ARCHITEKTÚRA TELA</span>
-        <h2 class="section-title">Dvojkomorová Konštrukcia Kvetináča</h2>
+        <span class="section-kicker">02 // MECHANICAL &amp; ELECTRONIC ARCHITECTURE</span>
+        <h2 class="section-title">Dual-Chamber Planter Design</h2>
       </div>
       <span class="section-tag">Ø 78 mm × 80 mm</span>
     </div>
@@ -1566,17 +1500,17 @@
           <line x1="305" y1="45" x2="305" y2="300" stroke="#00e5ff" stroke-width="1.2"/>
           <polyline points="302,52 305,45 308,52" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
           <polyline points="302,293 305,300 308,293" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
-          <text x="312" y="176" fill="#00e5ff" font-family="'JetBrains Mono'" font-size="9" transform="rotate(90 312 176)">80 mm celkom</text>
+          <text x="312" y="176" fill="#00e5ff" font-family="'JetBrains Mono'" font-size="9" transform="rotate(90 312 176)">80 mm total height</text>
 
           <!-- Top Diameter Marker -->
           <line x1="50" y1="28" x2="290" y2="28" stroke="#00e5ff" stroke-width="1.2"/>
           <polyline points="57,25 50,28 57,31" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
           <polyline points="283,25 290,28 283,31" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
-          <text x="170" y="22" fill="#00e5ff" font-family="'JetBrains Mono'" font-size="10" text-anchor="middle" font-weight="bold">Ø 78 mm (Valec)</text>
+          <text x="170" y="22" fill="#00e5ff" font-family="'JetBrains Mono'" font-size="10" text-anchor="middle" font-weight="bold">Ø 78 mm (Cylinder)</text>
 
           <!-- Upper Soil Chamber (50mm height) -->
           <rect x="62" y="55" width="216" height="135" rx="6" fill="#1d1d2e" stroke="rgba(255,255,255,0.12)"/>
-          <text x="170" y="75" fill="#a0a0b8" font-family="'JetBrains Mono'" font-size="10" text-anchor="middle" font-weight="bold">HORNÁ KOMORA: PÔDA (50 mm)</text>
+          <text x="170" y="75" fill="#a0a0b8" font-family="'JetBrains Mono'" font-size="10" text-anchor="middle" font-weight="bold">UPPER CHAMBER: SOIL (50 mm)</text>
           
           <!-- Succulent Graphic (Positioned on left side of upper chamber) -->
           <path d="M125 100 C113 75 95 85 107 108 C87 92 75 110 99 122 C81 128 93 145 117 134 Z" fill="#00e676" opacity="0.85"/>
@@ -1591,17 +1525,17 @@
           <line x1="240" y1="125" x2="248" y2="125" stroke="#ffb703" stroke-width="1.2"/>
           <circle cx="248" cy="125" r="2" fill="#ffb703"/>
           <rect x="174" y="104" width="66" height="42" rx="4" fill="rgba(14, 14, 24, 0.92)" stroke="rgba(255, 183, 3, 0.45)" stroke-width="0.8"/>
-          <text x="207" y="117" fill="#ffb703" font-family="'JetBrains Mono'" font-size="8" font-weight="bold" text-anchor="middle">Kapacitný</text>
-          <text x="207" y="128" fill="#ffb703" font-family="'JetBrains Mono'" font-size="8" font-weight="bold" text-anchor="middle">senzor v1.2</text>
-          <text x="207" y="139" fill="#a0a0b8" font-family="'JetBrains Mono'" font-size="7" text-anchor="middle">Ponor: 45 mm</text>
+          <text x="207" y="117" fill="#ffb703" font-family="'JetBrains Mono'" font-size="8" font-weight="bold" text-anchor="middle">Capacitive</text>
+          <text x="207" y="128" fill="#ffb703" font-family="'JetBrains Mono'" font-size="8" font-weight="bold" text-anchor="middle">sensor v1.2</text>
+          <text x="207" y="139" fill="#a0a0b8" font-family="'JetBrains Mono'" font-size="7" text-anchor="middle">Depth: 45 mm</text>
           
           <!-- Waterproof Barrier / Gasket -->
           <rect x="50" y="196" width="240" height="14" fill="#ff3e3e" opacity="0.9"/>
-          <text x="170" y="207" fill="#fff" font-family="'JetBrains Mono'" font-size="9" text-anchor="middle" font-weight="bold">VODOTESNÁ PREPÁŽKA + SILIKÓN</text>
+          <text x="170" y="207" fill="#fff" font-family="'JetBrains Mono'" font-size="9" text-anchor="middle" font-weight="bold">WATERPROOF BARRIER + SILICONE</text>
           
           <!-- Lower Electronics Dry Chamber (30mm height) -->
           <rect x="62" y="217" width="216" height="74" rx="6" fill="#0d0d16" stroke="rgba(255,255,255,0.12)"/>
-          <text x="170" y="234" fill="#00e5ff" font-family="'JetBrains Mono'" font-size="10" text-anchor="middle" font-weight="bold">SUCHÁ KOMORA (30 mm)</text>
+          <text x="170" y="234" fill="#00e5ff" font-family="'JetBrains Mono'" font-size="10" text-anchor="middle" font-weight="bold">DRY ELECTRONICS CHAMBER (30 mm)</text>
           
           <!-- Arduino Nano -->
           <rect x="76" y="246" width="68" height="34" rx="3" fill="#24243a" stroke="#00e5ff"/>
@@ -1621,43 +1555,43 @@
           <line x1="130" y1="300" x2="150" y2="300" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round"/>
           <line x1="160" y1="300" x2="180" y2="300" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round"/>
           <line x1="190" y1="300" x2="210" y2="300" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round"/>
-          <text x="170" y="322" fill="#666" font-family="'JetBrains Mono'" font-size="8" text-anchor="middle">Akustické štrbiny s odrazom od stola</text>
+          <text x="170" y="322" fill="#666" font-family="'JetBrains Mono'" font-size="8" text-anchor="middle">Acoustic ports with desktop sound reflection</text>
         </svg>
       </div>
 
       <div class="chamber-desc-list">
         <div class="chamber-item">
           <div class="chamber-title">
-            <span>Horná pestovateľská komora</span>
-            <span class="chamber-badge">Hĺbka 50 mm</span>
+            <span>Upper Cultivation Chamber</span>
+            <span class="chamber-badge">Depth: 50 mm</span>
           </div>
           <p class="chamber-text">
-            Určená pre sukulent (Haworthia) a pôdny substrát. Do nej je zvisle zapichnutý 
-            kapacitný senzor v1.2. Na rozdiel od lacných odporových senzorov sú jeho vodivé cestičky 
-            izolované lakom, takže nepodliehajú elektrolýze a nekorodujú.
+            Engineered for succulents (e.g. Haworthia) and potting substrate. Houses the vertically mounted 
+            capacitive moisture sensor v1.2. Unlike cheap resistive sensors, its conductive traces 
+            are solder-masked, completely eliminating electrolysis and copper corrosion.
           </p>
         </div>
 
         <div class="chamber-item barrier">
           <div class="chamber-title">
-            <span>Vodotesná deliaca prepážka</span>
-            <span class="chamber-badge">Silikónové tesnenie</span>
+            <span>Waterproof Isolation Barrier</span>
+            <span class="chamber-badge">Silicone Gasket Seal</span>
           </div>
           <p class="chamber-text">
-            Dno vrchnej nádobky má 4 perimetre v sliceri a tesniaci O-krúžok. Voda z polievania 
-            nemôže pretiecť k doskám plošných spojov pod ňou.
+            The base of the upper container is printed with 4 solid perimeters in the slicer and sealed with an O-ring. 
+            Irrigation water cannot leak into the PCB electronics below.
           </p>
         </div>
 
         <div class="chamber-item dry">
           <div class="chamber-title">
-            <span>Spodná suchá komora</span>
-            <span class="chamber-badge">Výška 30 mm</span>
+            <span>Lower Dry Electronics Chamber</span>
+            <span class="chamber-badge">Height: 30 mm</span>
           </div>
           <p class="chamber-text">
-            Ukrýva Arduino Nano, DFPlayer Mini s MicroSD kartou a 8Ω reproduktor. 
-            Zvuk sa šíri cez smerované spodné štrbiny s akustickým odrazom od stola.
-            Micro-USB port je vyvedený na zadnej strane pre štandardný 5V adaptér.
+            Encloses the Arduino Nano, DFPlayer Mini with MicroSD card, and an 8Ω speaker. 
+            Sound propagates through directional downward ports with acoustic reflection off the desk. 
+            A rear USB-C/micro-USB port provides power via any standard 5V adapter.
           </p>
         </div>
       </div>
@@ -1668,8 +1602,8 @@
   <section id="hlas" class="section-wrap">
     <div class="section-header">
       <div class="section-title-wrap">
-        <span class="section-kicker">03 // AKUSTICKÁ SPÄTNÁ VÄZBA</span>
-        <h2 class="section-title">Hlasový Systém &amp; Reakcie Kvetináča</h2>
+        <span class="section-kicker">03 // ACOUSTIC FEEDBACK</span>
+        <h2 class="section-title">Voice System &amp; Planter Reactions</h2>
       </div>
       <span class="section-tag">DFPLAYER MINI // MICROSD /MP3</span>
     </div>
@@ -1679,16 +1613,16 @@
       <div class="sound-card" id="card-thirsty" onclick="playVoiceFeedback('thirsty')">
         <div>
           <div class="sound-top">
-            <span class="sound-tag">TRACK 0001 // PRI VYSCHNUTÍ</span>
+            <span class="sound-tag">TRACK 0001 // DRY SOIL ALERT</span>
             <span class="sound-trigger-badge dry">ADC &gt; 620</span>
           </div>
           <div class="sound-quote">„Yamete kudasai! Mizu o kudasai!“</div>
-          <div class="sound-translation">Hláška pri vyschnutej pôde pod hranicu 30% vlhkosti. Ozve sa max raz za hodinu.</div>
+          <div class="sound-translation">Triggered when soil hydration drops below the 30% moisture threshold. Max once per hour.</div>
         </div>
         <div class="sound-play-bar">
           <div class="play-action-left">
             <div class="play-btn-circle">▶</div>
-            <span>Vyskúšať zvuk</span>
+            <span>Play Sample</span>
           </div>
           <div class="mini-eq">
             <div class="eq-bar"></div>
@@ -1703,16 +1637,16 @@
       <div class="sound-card" id="card-watered" onclick="playVoiceFeedback('watered')">
         <div>
           <div class="sound-top">
-            <span class="sound-tag">TRACK 0002 // PO POLIATÍ</span>
+            <span class="sound-tag">TRACK 0002 // WATERING DETECTED</span>
             <span class="sound-trigger-badge wet">ADC &lt; 450</span>
           </div>
-          <div class="sound-quote">„Arigatō! To bola úľava.“</div>
-          <div class="sound-translation">Okamžitá vďačná reakcia (do 1.5 sekundy po detekcii vody v pôde).</div>
+          <div class="sound-quote">„Arigatō! What a relief.“</div>
+          <div class="sound-translation">Immediate grateful response (within 1.5s after water detection in soil).</div>
         </div>
         <div class="sound-play-bar">
           <div class="play-action-left">
             <div class="play-btn-circle">▶</div>
-            <span>Vyskúšať zvuk</span>
+            <span>Play Sample</span>
           </div>
           <div class="mini-eq">
             <div class="eq-bar"></div>
@@ -1727,16 +1661,16 @@
       <div class="sound-card" id="card-boot" onclick="playVoiceFeedback('boot')">
         <div>
           <div class="sound-top">
-            <span class="sound-tag">TRACK 0003 // ŠTART DOSKY</span>
+            <span class="sound-tag">TRACK 0003 // SYSTEM BOOT</span>
             <span class="sound-trigger-badge boot">SETUP()</span>
           </div>
-          <div class="sound-quote">„Ohayō! Senzory sú pripravené.“</div>
-          <div class="sound-translation">Potvrdenie úspešného štartu mikrokontroléra a inicializácie SD karty.</div>
+          <div class="sound-quote">„Ohayō! Sensors are calibrated.“</div>
+          <div class="sound-translation">Self-test confirmation upon microcontroller boot and MicroSD audio initialization.</div>
         </div>
         <div class="sound-play-bar">
           <div class="play-action-left">
             <div class="play-btn-circle">▶</div>
-            <span>Vyskúšať zvuk</span>
+            <span>Play Sample</span>
           </div>
           <div class="mini-eq">
             <div class="eq-bar"></div>
@@ -1753,91 +1687,91 @@
   <section id="kusovnik" class="section-wrap">
     <div class="section-header">
       <div class="section-title-wrap">
-        <span class="section-kicker">04 // KUSOVNÍK &amp; REALIZÁCIA</span>
-        <h2 class="section-title">Overený Nákupný Zoznam (Techfun.sk)</h2>
+        <span class="section-kicker">04 // BILL OF MATERIALS &amp; PROCUREMENT</span>
+        <h2 class="section-title">Verified Hardware Bill of Materials (Techfun.sk)</h2>
       </div>
-      <span class="section-tag">SPOLU: 16,20 € // 100% SKLADOM NA SLOVENSKU</span>
+      <span class="section-tag">TOTAL: 16.20 € // 100% IN STOCK IN SLOVAKIA</span>
     </div>
 
     <div class="bom-wrap">
       <table class="bom-table">
         <thead>
           <tr>
-            <th>Komponent</th>
-            <th>Funkcia v projekte</th>
-            <th>Cena s DPH</th>
-            <th>Dostupnosť</th>
+            <th>Component</th>
+            <th>Project Function</th>
+            <th>Price (VAT incl.)</th>
+            <th>Supplier</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <span class="comp-name">Kapacitný senzor vlhkosti pôdy v1.2</span>
-              <span class="comp-meta">Analógový výstup A0, 3.3V – 5.5V</span>
+              <span class="comp-name">Capacitive Soil Moisture Sensor v1.2</span>
+              <span class="comp-meta">Analog output A0, 3.3V – 5.5V</span>
             </td>
-            <td>Nekorodujúce meranie vlhkosti pôdy</td>
-            <td><span class="bom-price">1,50 €</span></td>
+            <td>Corrosion-free soil moisture measurement</td>
+            <td><span class="bom-price">1.50 €</span></td>
             <td><a href="https://techfun.sk/produkt/kapacitny-senzor-vlhkosti-pody/" target="_blank" class="bom-link-btn">Techfun.sk ↗</a></td>
           </tr>
           <tr>
             <td>
-              <span class="comp-name">DFPlayer Mini MP3 prehrávač</span>
+              <span class="comp-name">DFPlayer Mini MP3 Player</span>
               <span class="comp-meta">UART Serial (D10, D11), MicroSD slot, 24-bit DAC</span>
             </td>
-            <td>Hardvérové dekódovanie a prehrávanie hlášok</td>
-            <td><span class="bom-price">2,75 €</span></td>
+            <td>Hardware audio decoding and voice playback</td>
+            <td><span class="bom-price">2.75 €</span></td>
             <td><a href="https://techfun.sk/produkt/mp3-prehravac-mini-df-player/" target="_blank" class="bom-link-btn">Techfun.sk ↗</a></td>
           </tr>
           <tr>
             <td>
-              <span class="comp-name">Arduino Nano klon (Micro USB, ATmega328P)</span>
-              <span class="comp-meta">16 MHz, 5V napájanie, 8 analógových pinov</span>
+              <span class="comp-name">Arduino Nano Clone (Micro USB, ATmega328P)</span>
+              <span class="comp-meta">16 MHz, 5V power, 8 analog pins</span>
             </td>
-            <td>Riadiaci mikrokontrolér a 16x priemerovanie</td>
-            <td><span class="bom-price">5,45 €</span></td>
+            <td>Main microcontroller &amp; 16x oversampling filter</td>
+            <td><span class="bom-price">5.45 €</span></td>
             <td><a href="https://techfun.sk/produkt/arduino-nano-klon-s-micro-usb/" target="_blank" class="bom-link-btn">Techfun.sk ↗</a></td>
           </tr>
           <tr>
             <td>
-              <span class="comp-name">Reproduktor 8Ω 0.5W (Ø 40 mm)</span>
-              <span class="comp-meta">Impedancia 8 ohmov, priemer 4 cm</span>
+              <span class="comp-name">Mini Speaker 8Ω 0.5W (Ø 40 mm)</span>
+              <span class="comp-meta">8-ohm impedance, 4 cm diameter</span>
             </td>
-            <td>Priame pripojenie na SPK_1 / SPK_2 DFPlayeru</td>
-            <td><span class="bom-price">0,60 €</span></td>
+            <td>Direct connection to DFPlayer SPK_1 / SPK_2</td>
+            <td><span class="bom-price">0.60 €</span></td>
             <td><a href="https://techfun.sk/produkt/reproduktor-8-ohm-0-5w/" target="_blank" class="bom-link-btn">Techfun.sk ↗</a></td>
           </tr>
           <tr>
             <td>
-              <span class="comp-name">Prepojovacie kábliky Dupont (40 ks, 20 cm)</span>
+              <span class="comp-name">Dupont Jumper Wires (40 pcs, 20 cm)</span>
               <span class="comp-meta">Female-Female &amp; Male-Male</span>
             </td>
-            <td>Spojenie senzorov a modulov v spodnej komore</td>
-            <td><span class="bom-price">2,20 €</span></td>
+            <td>Interconnecting modules inside the lower dry chamber</td>
+            <td><span class="bom-price">2.20 €</span></td>
             <td><a href="https://techfun.sk/produkt/kabliky-40-kusov-20-cm/" target="_blank" class="bom-link-btn">Techfun.sk ↗</a></td>
           </tr>
           <tr>
             <td>
-              <span class="comp-name">Mini nepájivé pole do komory (170 bodov)</span>
-              <span class="comp-meta">Rozmery 45 × 35 mm (presne do Ø 78 mm kruhu)</span>
+              <span class="comp-name">Mini Solderless Breadboard (170 points)</span>
+              <span class="comp-meta">Dimensions 45 × 35 mm (fits inside Ø 78 mm circular base)</span>
             </td>
-            <td>Kompaktná montáž elektroniky bez nutnosti leptania</td>
-            <td><span class="bom-price">0,40 €</span></td>
+            <td>Compact solderless circuit assembly without PCB etching</td>
+            <td><span class="bom-price">0.40 €</span></td>
             <td><a href="https://techfun.sk/produkt/nepajive-pole-170-bodov/" target="_blank" class="bom-link-btn">Techfun.sk ↗</a></td>
           </tr>
           <tr>
             <td>
-              <span class="comp-name">Sada metalických rezistorov (30 hodnôt)</span>
-              <span class="comp-meta">Vrátane 1 kΩ pre ochranu RX linky DFPlayeru</span>
+              <span class="comp-name">Metal Film Resistor Kit (30 values)</span>
+              <span class="comp-meta">Includes 1 kΩ resistor for DFPlayer RX line protection</span>
             </td>
-            <td>Tlmenie šumu a napäťový delič pre UART</td>
-            <td><span class="bom-price">2,90 €</span></td>
+            <td>Noise reduction and voltage divider for UART RX</td>
+            <td><span class="bom-price">2.90 €</span></td>
             <td><a href="https://techfun.sk/produkt/rezistory-balenie-30-hodnot-x-20-kusov/" target="_blank" class="bom-link-btn">Techfun.sk ↗</a></td>
           </tr>
         </tbody>
       </table>
       <div class="bom-footer-bar">
-        <span class="bom-total-text">Celkový rozpočet hardvéru (100% dostupné komponenty)</span>
-        <span class="bom-total-val">16,20 €</span>
+        <span class="bom-total-text">Total hardware budget (100% available components)</span>
+        <span class="bom-total-val">16.20 €</span>
       </div>
     </div>
   </section>
@@ -1846,8 +1780,8 @@
   <section id="stiahnutie" class="section-wrap">
     <div class="section-header">
       <div class="section-title-wrap">
-        <span class="section-kicker">05 // ZDROJOVÉ SÚBORY</span>
-        <h2 class="section-title">Projektové Dáta na Stiahnutie</h2>
+        <span class="section-kicker">05 // REPOSITORY ASSETS</span>
+        <h2 class="section-title">Project Source Files &amp; Downloads</h2>
       </div>
       <span class="section-tag">OPEN SOURCE // GITHUB REPO</span>
     </div>
@@ -1855,12 +1789,12 @@
     <div class="downloads-grid">
       <a href="3d_models/grimmjow_140mm_ready.stl" download class="dl-card">
         <div>
-          <span class="dl-type">3D Tlač (STL)</span>
+          <span class="dl-type">3D Print (STL)</span>
           <h4 class="dl-title">Grimmjow 140mm (Ready)</h4>
-          <p class="dl-desc">Kompletná sediaca figúrka v mierke 140 mm pre Tinkercad a FabLab s mečom v páse.</p>
+          <p class="dl-desc">Complete sitting figure scaled to 140 mm for Tinkercad, PrusaSlicer, and FabLab with waist katana.</p>
         </div>
         <div class="dl-action-btn">
-          <span>Stiahnuť .stl</span>
+          <span>Download .stl</span>
           <span>↓</span>
         </div>
       </a>
@@ -1869,34 +1803,34 @@
         <div>
           <span class="dl-type">Arduino C++</span>
           <h4 class="dl-title">otaku_planter.ino</h4>
-          <p class="dl-desc">C++ firmvér: 16x priemerovanie, hysterézia a UART obsluha DFPlayera.</p>
+          <p class="dl-desc">C++ firmware: 16x oversampling, hysteresis filtering, and DFPlayer UART control.</p>
         </div>
         <div class="dl-action-btn">
-          <span>Stiahnuť .ino</span>
+          <span>Download .ino</span>
           <span>↓</span>
         </div>
       </a>
 
       <a href="EA_ST004_AutoLogin.eaps" download class="dl-card">
         <div>
-          <span class="dl-type">Architektúra</span>
+          <span class="dl-type">Architecture</span>
           <h4 class="dl-title">Enterprise Architect</h4>
-          <p class="dl-desc">Cloudové pripojenie na EA model (Use Case, Component a State Machine).</p>
+          <p class="dl-desc">Cloud connection file for EA system models (Use Case, Component, and State Machine diagrams).</p>
         </div>
         <div class="dl-action-btn">
-          <span>Stiahnuť .eaps</span>
+          <span>Download .eaps</span>
           <span>↓</span>
         </div>
       </a>
 
       <a href="OtakuPlanter_Pitch_Presentation.pptx" download class="dl-card">
         <div>
-          <span class="dl-type">Prezentácia</span>
+          <span class="dl-type">Presentation</span>
           <h4 class="dl-title">Pitch Deck (PPTX)</h4>
-          <p class="dl-desc">Oficiálna 6-slajdová prezentácia projektu pre predmet SMVIT.</p>
+          <p class="dl-desc">Official 6-slide project presentation deck for the SMVIT course.</p>
         </div>
         <div class="dl-action-btn">
-          <span>Stiahnuť .pptx</span>
+          <span>Download .pptx</span>
           <span>↓</span>
         </div>
       </a>
@@ -1909,7 +1843,7 @@
       <strong>ANIME PLANTER</strong> — FIIT STU Bratislava 2026
     </div>
     <div style="display: flex; align-items: center; gap: 1.5rem;">
-      <span>Tím: Bc. Peter Brandajský (ST004) &amp; Bc. Timotej Strečko (ST013)</span>
+      <span>Team: Bc. Peter Brandajský (ST004) &amp; Bc. Timotej Strečko (ST013)</span>
       <a href="https://github.com/Kozelko/smvit" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: underline; display: inline-flex; align-items: center; gap: 0.35rem;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         <span>GitHub: Kozelko/smvit ↗</span>
@@ -2158,7 +2092,7 @@
       function onModelError(err) {
         console.error('3D Model load error:', err);
         if (loaderEl) {
-          loaderEl.innerHTML = '<span style="color: #ff3e3e;">Model načítaný s chybou. Skontrolujte assets/grimmjow_model_data.js</span>';
+          loaderEl.innerHTML = '<span style="color: #ff3e3e;">Error loading 3D model. Check assets/grimmjow_model_data.js</span>';
         }
       }
 
