@@ -202,7 +202,7 @@
       position: absolute;
       top: 46%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) scale(1);
       width: min(680px, 92vw);
       height: min(680px, 92vw);
       border-radius: 50%;
@@ -210,6 +210,15 @@
       filter: blur(55px);
       pointer-events: none;
       z-index: 1;
+      transition: transform 0.45s cubic-bezier(0.2, 0.85, 0.25, 1), opacity 0.45s ease;
+    }
+
+    /* Ambient pulse on Aizen hover */
+    .hero-stage-card.aizen-hovered .hero-reiatsu-glow,
+    .hero-stage-card:has(.hero-aizen-center-frame:hover) .hero-reiatsu-glow {
+      transform: translate(-50%, -50%) scale(1.15);
+      opacity: 1.35;
+      filter: blur(50px);
     }
 
     /* Floating Purple Particles Canvas (dense at Aizen, sparse at edges) */
@@ -332,13 +341,14 @@
       position: relative;
       z-index: 20;
       filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85));
-      transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1);
-      will-change: transform;
+      transition: transform 0.38s cubic-bezier(0.2, 0.85, 0.25, 1), filter 0.38s ease;
+      will-change: transform, filter;
     }
 
-    /* Clean Zoom: Aizen smoothly zooms in */
+    /* Cinematic Reiatsu Surge: Aizen steps forward with silhouette aura & subtle lighting lift */
     .hero-aizen-center-frame:hover .hero-aizen-center-img {
-      transform: scale(1.06) translateY(-4px);
+      transform: scale(1.08) translateY(-6px);
+      filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(168, 85, 247, 0.6)) brightness(1.06) contrast(1.03);
       z-index: 50;
     }
 
@@ -2284,6 +2294,8 @@
         }
       }
 
+      let isAizenHovered = false;
+
       function animate() {
         if (!isVisible) {
           animationFrameId = null;
@@ -2295,11 +2307,33 @@
         const center = getCenter();
         const maxR = Math.hypot(width, height) * 0.55;
 
-        for (let i = 0; i < particles.length; i++) {
+        for (let i = particles.length - 1; i >= 0; i--) {
           const p = particles[i];
+
+          // Handle burst sparks from Aizen hover
+          if (p.isBurst) {
+            p.x += p.vx;
+            p.y -= p.vy;
+            p.vx *= 0.97;
+            p.vy *= 0.98;
+            p.life -= p.decay;
+
+            if (p.life <= 0) {
+              particles.splice(i, 1);
+              continue;
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, Math.max(0.1, p.baseRadius * p.life), 0, Math.PI * 2);
+            ctx.fillStyle = p.color + (p.baseAlpha * p.life).toFixed(3) + ')';
+            ctx.fill();
+            continue;
+          }
+
           p.phase += p.pulseSpeed;
-          p.y -= p.vy;
-          p.x += Math.sin(p.phase) * 0.2 + p.vx;
+          const currentVy = isAizenHovered ? p.vy * 1.6 : p.vy;
+          p.y -= currentVy;
+          p.x += Math.sin(p.phase) * (isAizenHovered ? 0.35 : 0.2) + p.vx;
 
           // Radial distance from Aizen center
           const dx = p.x - center.x;
@@ -2341,14 +2375,38 @@
 
       window.addEventListener('resize', resize, { passive: true });
 
-      // Slight acceleration of particles when hovering on Aizen
+      // Reactive Hover: Reiatsu Surge & Burst when hovering on Aizen
       const aizenFrame = document.querySelector('.hero-aizen-center-frame');
       if (aizenFrame) {
         aizenFrame.addEventListener('mouseenter', () => {
-          particles.forEach(p => { p.vy *= 1.4; });
+          isAizenHovered = true;
+          stageCard.classList.add('aizen-hovered');
+
+          // Spawn burst of floating Reiatsu sparks from Aizen's center
+          const center = getCenter();
+          for (let b = 0; b < 24; b++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 0.8 + Math.random() * 2.2;
+            particles.push({
+              x: center.x + (Math.random() - 0.5) * 50,
+              y: center.y + (Math.random() - 0.5) * 110,
+              baseRadius: 1.2 + Math.random() * 1.8,
+              color: Math.random() > 0.4 ? 'rgba(216, 180, 254, ' : 'rgba(168, 85, 247, ',
+              baseAlpha: 0.85,
+              vy: Math.sin(angle) * speed * 0.5 + 0.9,
+              vx: Math.cos(angle) * speed,
+              phase: Math.random() * Math.PI * 2,
+              pulseSpeed: 0.05,
+              isBurst: true,
+              life: 1.0,
+              decay: 0.016 + Math.random() * 0.018
+            });
+          }
         });
+
         aizenFrame.addEventListener('mouseleave', () => {
-          particles.forEach(p => { p.vy /= 1.4; });
+          isAizenHovered = false;
+          stageCard.classList.remove('aizen-hovered');
         });
       }
 
