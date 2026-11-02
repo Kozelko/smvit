@@ -187,7 +187,9 @@
       background: #08070d;
       border: 2px solid transparent;
       border-radius: 20px;
-      background-image: linear-gradient(#08070d, #08070d), linear-gradient(135deg, #d946ef 0%, #9d4edd 35%, #00e5ff 70%, #00e676 100%);
+      background-image: 
+        radial-gradient(circle at 50% 46%, rgba(168, 85, 247, 0.32) 0%, rgba(147, 51, 234, 0.20) 22%, rgba(109, 40, 217, 0.10) 45%, rgba(67, 24, 138, 0.03) 68%, #08070d 88%), 
+        linear-gradient(135deg, #d946ef 0%, #9d4edd 35%, #00e5ff 70%, #00e676 100%);
       background-origin: border-box;
       background-clip: padding-box, border-box;
       box-shadow: 0 0 60px rgba(157, 78, 221, 0.2), inset 0 0 80px rgba(0, 0, 0, 0.8);
@@ -313,13 +315,14 @@
       position: relative;
       z-index: 20;
       filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85));
-      transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1);
-      will-change: transform;
+      transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1), filter 0.35s ease;
+      will-change: transform, filter;
     }
 
-    /* Clean Zoom: Aizen smoothly zooms in */
+    /* Clean Zoom: Aizen smoothly zooms in with subtle purple aura */
     .hero-aizen-center-frame:hover .hero-aizen-center-img {
-      transform: scale(1.1) translateY(-8px);
+      transform: scale(1.08) translateY(-6px);
+      filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 35px rgba(168, 85, 247, 0.45));
       z-index: 50;
     }
 
@@ -1217,6 +1220,9 @@
       .hero-stage-card {
         padding: 1.75rem 1.25rem 1.25rem 1.25rem;
         min-height: auto;
+        background-image: 
+          radial-gradient(circle at 50% 26%, rgba(168, 85, 247, 0.32) 0%, rgba(147, 51, 234, 0.20) 22%, rgba(109, 40, 217, 0.10) 45%, rgba(67, 24, 138, 0.03) 68%, #08070d 88%), 
+          linear-gradient(135deg, #d946ef 0%, #9d4edd 35%, #00e5ff 70%, #00e676 100%);
       }
       .hero-center-stage {
         grid-template-columns: 1fr;
